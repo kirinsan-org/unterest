@@ -4,6 +4,7 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+@import url(http://fonts.googleapis.com/css?family=Oswald:700);
 
 
 /*Width*/
@@ -76,12 +77,49 @@ footer#global-footer {
   > img {margin:8px auto;}
 }
 
+
+button {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  height:48px;
+  line-height:48px;
+  background-color: $keyColor;
+  &.lighten {
+    background-color: lighten( $keyColor, 15% );
+  }
+  color:#FFF;
+  border:none;
+  padding:0 16px;
+  text-align:center;
+  min-width:50px;
+  position: relative;
+  top:0;
+  transition:top 0.1s ease-in-out 0s;
+  font-size: 16px;
+  font-weight:bold;
+  box-shadow: $dropShadowLv1;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    top:3px;
+  }
+
+  .glyphicons {
+    top: 2px;
+  }
+}
+
+
 /*メインビジュアル要素*/
 
 #mainvisual , .keyVisual {
   background-color: #ccc;
   min-height:100px;
   position: relative;
+
+  transition: height 0.5s ease-in-out 0s;
 
   $ratio :0.5;
   //Smartphones
@@ -138,7 +176,7 @@ footer#global-footer {
 @media (max-width: $phoneMaxWidth) {body{display:block;}}
 
 
-.buttonCommon {
+.buttonCommon{
 
   $height : 64px;
 
@@ -147,6 +185,12 @@ footer#global-footer {
   text-decoration:none;
   color:#fff;
   background-color:$keyColor;
+  transition: all 0.5s ease-out 0.3s;
+  box-shadow:$dropShadowLv4;
+
+  &.lighten{
+    background-color: lighten( $keyColor, 15% );
+  }
   position: relative;
   z-index:1000;
 
@@ -159,9 +203,40 @@ footer#global-footer {
     position: absolute;
     bottom:$height * -0.5;
     right:$height * 0.25;
+    .first{
+      display:none;
+    }
+    
+    .second{
+      display:block;
+    }
+
+    &.mainvisualCenter{
+      right: 50%;
+      bottom: 20%;
+      border-radius: 0;
+      width: 300px;
+      margin: 0 -150px;
+
+      @media (max-width: $phabletWidth) {
+        bottom: 8%;
+      }
+
+
+      .first{
+        display:block;
+      }
+      .second{
+        display:none;
+      }
+    }
   }
 
+
+
 }
+
+
 
 .cards {
   display:block;
@@ -173,29 +248,7 @@ footer#global-footer {
     zoom:1;
   }
 
-  button {
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
-    height:48px;
-    line-height:48px;
-    background-color: $keyColor;
-    color:#FFF;
-    border:none;
-    padding:0 16px;
-    text-align:center;
-    min-width:50px;
-    position: relative;
-    top:0;
-    transition:top 0.1s ease-in-out 0s;
-    font-size: 16px;
 
-    &:focus {
-      outline: none;
-    }
-
-    &:active {
-      top:3px;
-    }
-  }
 
   > li {
 
@@ -331,11 +384,20 @@ transition: background 0.3s ease-in-out 0s;
   height: 128px;
   font-size: 128px;
   color: #FFF;
-  font-family: impact,sans-serif;
+  font-family: Oswald ,sans-serif;
+  font-weight:700;
   text-align: center;
   width: 100%;
   top: 50%;
   margin-top: -64px;
+
+  @media (max-width: $phabletWidth) {
+    line-height: 96px;
+    height: 96px;
+    font-size: 96px;
+    margin-top: -48px;
+  }
+
   img {
     height:50%;
     opacity:0;
@@ -371,4 +433,53 @@ h3 {
   img {
     width:16px;
   }
+}
+
+
+#entrance {
+  position: fixed;
+  top:0;left:0;
+  background-color: $keyColor;
+  background-image: url(../images/brand_flash.png);
+  background-position: center;
+  background-size: 320px 320px;
+  background-repeat: no-repeat;
+  background-size: 320px 320px;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  text-align:center;
+
+  .lowerComponents {
+    position: absolute;
+    bottom:0;left:0;
+    width:100%;
+    height:96px;line-height:96px;
+
+    button {
+      position: relative;
+      top:0;
+      transition: top 0.3s ease-in-out 0s;
+    }
+
+    img.progress {
+      position: absolute;
+      margin:-8px;
+      top:120px;left: 50%;
+      transition: top 0.3s ease-in-out 0s;
+    }
+  }
+
+  &.progress {
+    .lowerComponents {
+      button {
+        top:120px
+      }
+
+      img.progress {
+        top:50%;
+      }
+    }
+  }
+
 }
