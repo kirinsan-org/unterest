@@ -1,0 +1,87 @@
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+
+  <header id="global-header">
+    <h1>brand</h1>
+  </header>
+
+  <header id="mainvisual" class="keyVisual">
+    <div class="visual">
+      <img src="http://lorempixel.com/400/300/sports/" alt="" >
+    </div>
+
+    <a href="#" class="buttonCommon">+</a>
+  </header>
+
+  <section>
+    <ul id="main-cards" class="cards toilets">
+      <li>
+        <div class="card">
+          <button>BOMB警告</button>
+          <div id="result">
+
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+
+  <footer id="global-footer">
+    <p>kirinsan.org </p>
+  </footer>
+
+
+<script>
+  var container = document.querySelector('#main-cards');
+  var msnry = new Masonry( container, {
+    itemSelector: 'li',
+    transitionDuration: 0.1
+  });
+
+
+ var geolocation = new (function(){
+
+   var status = "initialize";
+   this.result = false;
+
+  var done = function(pos){
+     $("#result").html(JSON.stringify(pos));
+
+     status = "success";
+
+     console.log("done:",pos,status)
+
+     result = pos;
+   }
+
+  var failed = function(a){
+    console.log("failed:",a)
+   }
+
+
+   navigator.geolocation.getCurrentPosition(done, failed);
+
+  return this.result 
+ })();
+
+$(function(){
+
+
+});
+
+</script>
+</body>
+</html>

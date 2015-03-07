@@ -160,6 +160,23 @@ footer#global-footer {
     zoom:1;
   }
 
+  button {
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    height:48px;
+    line-height:48px;
+    background-color: #ccc;
+    border:none;
+    padding:0 8px;
+    text-align:center;
+    min-width:50px;
+    position: relative;
+    top:0;
+    transition:top 0.1s ease-in-out 0s;
+    &:active {
+      top:3px;
+    }
+  }
+
   > li {
 
     &:after{
