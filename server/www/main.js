@@ -28,7 +28,9 @@ jQuery(function($) {
 
         if (!confirm('本当に行きますか？')) return;
 
-        window.open("http://maps.google.co.jp/maps?f=d&hl=ja&geocode=&ie=UTF8&ll="+pos);
+        var currentPos = geolocation.result.coords.latitude + "," + geolocation.result.coords.longitude;
+
+        window.open("https://www.google.co.jp/maps/dir/"+currentPos+"/"+currentPos+"/@"+pos+",16z");
 
         socket.emit('user.thankYou', {
           target: data.source,
