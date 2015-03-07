@@ -31,7 +31,8 @@ io.on('connection', function(socket) {
     // TODO 位置情報で絞込
     socket.broadcast.emit('user.help', {
       source: socket.id,
-      data: data
+      userId: data.userId,
+      geolocation: data.geolocation
     });
   });
 
@@ -46,7 +47,8 @@ io.on('connection', function(socket) {
     // user.helpを送ったsocketに戻す
     socket.broadcast.to(data.target).emit('owner.response', {
       source: socket.id,
-      data: data
+      result: data.result,
+      userId: data.userId
     });
   });
 
@@ -60,7 +62,7 @@ io.on('connection', function(socket) {
     // owner.response を送ったsocketに戻す
     socket.broadcast.to(data.target).emit('user.thankYou', {
       source: socket.id,
-      data: data
+      userId: data.userId
     });
   });
 
@@ -72,9 +74,9 @@ io.on('connection', function(socket) {
   socket.on('user.cancel', function(data) {
 
     // TODO 絞込
-    socket.broadcast.to(data.target).emit('user.cancel', {
+    socket.broadcast.emit('user.cancel', {
       source: socket.id,
-      data: data
+      userId: data.userId
     });
   });
 });

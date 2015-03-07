@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var schema = module.exports = new mongoose.Schema({
   id: Number,
   socketId: String,
-  screenName: String,
+  screenname: String,
   review: [{
     reviewer: Number,
     title: String,

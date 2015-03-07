@@ -1,0 +1,216 @@
+jQuery(function($) {
+
+  // socket.io
+  var socket = window.io ? io.connect() : {
+    on: function() {},
+    emit: function() {}
+  };
+  var userId = '0';
+
+  // トイレ所有者から返答があった時
+  socket.on('owner.response', function(data) {
+    console.log(data);
+
+    var $li = $('#main-cards li[data-user-id="' + data.userId + '"]');
+    setStatus($li, data.result ? 'allow' : 'deny');
+
+    // ここへ行く
+    $li.one('click', function() {
+      if (!confirm('ここへ行きますか？')) return;
+
+      socket.emit('user.thankYou', {
+        target: data.source,
+        userId: userId
+      });
+    })
+  });
+
+  function setToiletCount(arg) {
+    var $counter = $("#toilet-count").children(".counter");
+    var i = 0;
+    var interval = setInterval(function() {
+
+      var tmp = Math.round(arg - (arg - (i++ * 2)));
+
+      if (tmp >= arg) {
+        $counter.text(arg);
+        clearInterval(interval);
+        setTimeout(function() {
+          $("img.mark").animate({
+            "opacity": 1
+          });
+        }, 300)
+      } else {
+        $counter.text(tmp);
+      }
+
+    }, 30);
+  }
+
+  function setStatus($el, status) {
+    $el.removeClass("deny allow");
+    $icon = $el.find(".glyphicons");
+
+    $icon.removeClass("mode remove ok");
+    if (status == "allow") {
+      $el.addClass("allow");
+      $icon.addClass("ok");
+    } else if (status == "deny") {
+      $el.addClass("deny");
+      $icon.addClass("remove");
+    } else {
+      $icon.addClass("more");
+    }
+  }
+
+  var Geokit = function(callback) {
+    this.status = undefined;
+    this.result = false;
+    return false;
+  }
+
+  Geokit.prototype.done = function(pos) {
+    this.status = "success";
+    console.log(this.status, this);
+    console.log("done:", pos, status);
+    this.result = pos;
+  }
+
+  Geokit.prototype.fail = function(a) {
+    this.status = false;
+  }
+
+  Geokit.prototype.get = function(callback) {
+    navigator.geolocation.getCurrentPosition(
+      function(pos) {
+        geolocation.done(pos);
+        callback.call(this);
+      },
+      function(pos) {
+        geolocation.fail(pos);
+      });
+  }
+
+
+  var geolocation = new Geokit();
+
+  var $entrance = $("#entrance");
+  $entrance.find("button").on({
+    "click": function() {
+      $entrance.addClass("progress");
+      geolocation.get(function() {
+        $entrance.fadeOut();
+
+        if (!!window.location.host.match("localhost")) {
+          var url = "/api/toilet/@35.72518644882094,139.7632000846558";
+        } else {
+          var url = "/api/toilet/@" + geolocation.result.coords.latitude + "," + geolocation.result.coords.longitude;
+        }
+
+        $.ajax({
+          url: url,
+          dataType: "JSON",
+          cache: false,
+          success: function(data, textStatus) {
+            setToiletCount(data.length);
+          },
+          error: function(xhr, textStatus, errorThrown) {
+
+          }
+        });
+
+      });
+    }
+  });
+
+  $(window).on({
+    "resize": function() {
+      var fullHeight = $(window).height() - $("#global-header").height() - $("#global-footer").height();
+      console.log(fullHeight);
+      $("#mainvisual.fullHeight").height(fullHeight)
+    }
+  }).trigger("resize");
+
+  $(".buttonCommon").on({
+    "click": function() {
+
+      if ($("#mainvisual.fullHeight").length != 0) {
+
+
+        $("#mainvisual.fullHeight").height("").removeClass("fullHeight")
+        $(this).removeClass("mainvisualCenter");
+
+        if (!!window.location.host.match("localhost")) {
+          var url = "/api/toilet/@35.72518644882094,139.7632000846558";
+        } else {
+          var url = "/api/toilet/@" + geolocation.result.coords.latitude + "," + geolocation.result.coords.longitude;
+        }
+
+
+        $.ajax({
+          url: url,
+          dataType: "JSON",
+          cache: false,
+          success: function(data, textStatus) {
+            console.log("done:", data)
+            setTimeout(function() {
+              $.each(data, function(i, item) {
+
+                var $li = $("<li />")
+                  .addClass("fullsize")
+                  // 後で返答を受けた時に検索するために付ける
+                  .attr('data-user-id', item.id)
+                  .attr('data-socket-id', item.source)
+                  .html('<div class="card"><span class="glyphicons more"></span>' + this.distance.toFixed(1) + ' m</div>')
+                  .css("opacity", 0);
+                $("#main-cards").append($li);
+                setTimeout(function() {
+                  $li.animate({
+                    "opacity": 1
+                  });
+                }, i * 50);
+
+              })
+
+              // トイレ所有者にメッセージを送る
+              socket.emit('user.help', {
+                geolocation: {
+                  lat: geolocation.result.coords.latitude,
+                  lng: geolocation.result.coords.longitude
+                },
+                userId: userId
+              });
+
+            }, 300)
+          },
+          error: function(xhr, textStatus, errorThrown) {
+            console.log("isError")
+          }
+        });
+      } else {
+        $("#mainvisual").addClass("fullHeight");
+        $(this).addClass("mainvisualCenter");
+        $(window).trigger("resize");
+        $("#main-cards").children("li").fadeOut(function() {
+          $(this).remove()
+        });
+
+        // キャンセルを通知
+        socket.emit('user.cancel', {
+          userId: userId
+        });
+      }
+    }
+  });
+
+  $(window).on({
+    "scroll": function() {
+
+      $(".visual.streetview img").css("marginTop", (function() {
+
+        return ($(this).scrollTop() / $(window).height() * 30) - 15 + "%"
+
+      })());
+    }
+  });
+});

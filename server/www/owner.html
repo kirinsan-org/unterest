@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Owner">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Owner</title>
+</head>
+
+<body ng-controller="Main">
+
+  <div ng-show="helpReceived">
+    <h2>{{user.screenname}} がうんこしたいようです。助けてあげますか？</h2>
+    <button ng-click="sendResponse(target, true)">はい</button>
+    <button ng-click="sendResponse(target, false)">いいえ</button>
+  </div>
+
+  <div ng-show="userWillCome">
+    <h2>{{user.screenname}} の命はあなたによって救われました。</h2>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+  angular.module('Owner', []).controller('Main', function($scope, $http, $timeout) {
+
+    var userId = prompt('1～6までのどれか')
+    var socket = io.connect();
+
+    /**
+     * 助けを求められた時。
+     * data.source : 送信元ユーザーの socket.id
+     * data.geolocation : 送信元ユーザーの位置情報
+     * data.userId : 送信元ユーザーID
+     */
+    socket.on('user.help', function(data) {
+      console.log(data);
+
+      $scope.helpReceived = true;
+      $http.get('api/user/' + data.userId).success(function(user) {
+        $scope.user = user;
+      });
+
+      $scope.target = data.source;
+      $scope.$apply();
+    });
+
+    $scope.sendResponse = function(target, result) {
+      socket.emit('owner.response', {
+        target: target,
+        result: result,
+        userId: userId
+      });
+
+      $scope.helpReceived = false;
+    };
+
+    /**
+     * ここへ行くと決めた時。
+     * data.source : 送信元ユーザーの socket.id
+     * data.userId : 利用者のユーザーID
+     */
+    socket.on('user.thankYou', function(data) {
+      console.log(data);
+
+      $scope.userWillCome = true;
+      $http.get('api/user/' + data.userId).success(function(user) {
+        $scope.user = user;
+      });
+
+      $timeout(function() {
+        $scope.userWillCome = false;
+      }, 10000);
+
+      $scope.$apply();
+    });
+
+    /**
+     * 行かなくてよくなった時。
+     * data.source : 送信元ユーザーの socket.id
+     * data.userId : 利用者のユーザーID
+     */
+    socket.on('user.cancel', function(data) {
+      console.log(data);
+
+      $scope.userCanceled = true;
+      $http.get('api/user/' + data.userId).success(function(user) {
+        $scope.user = user;
+      });
+
+      $timeout(function() {
+        $scope.userCanceled = false;
+      }, 10000);
+
+      $scope.$apply();
+    });
+
+  });
+  </script>
+</body>
+
+</html>

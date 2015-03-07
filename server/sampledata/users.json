@@ -8,10 +8,7 @@
     "rate": 5
   }],
   "toilet": {
-    "geolocation": [
-      139.76320008465575,
-      35.725186448820935
-    ],
+    "geolocation": [139.76320008465575, 35.725186448820935],
     "name": "[ow;d]鷺ノ宮HQ",
     "photo": [{
       "type": "normal",
@@ -44,10 +41,7 @@
     "rate": 5
   }],
   "toilet": {
-    "geolocation": [
-      139.76320008465575,
-      35.725186448820935
-    ],
+    "geolocation": [139.76320008465575, 35.725186448820935],
     "name": "松尾邸 1F",
     "photo": [],
     "note": "文京区の落ち着きをぐっと凝縮したトイレ。",
@@ -67,10 +61,7 @@
   "id": 2,
   "screenname": "eje",
   "toilet": {
-    "geolocation": [
-      139.7318312,
-      35.664357
-    ],
+    "geolocation": [139.7318312, 35.664357],
     "name": "eje",
     "photo": [],
     "note": "",
@@ -83,10 +74,7 @@
   "id": 3,
   "screenname": "Yahoo!",
   "toilet": {
-    "geolocation": [
-      139.7318312,
-      35.664357
-    ],
+    "geolocation": [139.7318312, 35.664357],
     "name": "Yahoo!",
     "photo": [],
     "note": "",
@@ -94,5 +82,53 @@
       "会社",
       "洋式"
     ]
+  }
+}, {
+  "id": 4,
+  "screenname": "セブン-イレブン",
+  "toilet": {
+    "geolocation": [139.729973, 35.6645916],
+    "name": "セブン-イレブン",
+    "photo": [],
+    "note": "",
+    "tags": [
+      "コンビニ"
+    ]
+  }
+}, {
+  "id": 5,
+  "screenname": "ミッドタウン",
+  "toilet": {
+    "geolocation": [139.730478, 35.6652367],
+    "name": "ミッドタウン",
+    "photo": [],
+    "note": ""
+  }
+}, {
+  "id": 6,
+  "screenname": "どこかの誰か",
+  "toilet": {
+    "geolocation": [139.7364647, 35.667468],
+    "name": "どこかの誰か",
+    "photo": [],
+    "note": ""
+  }
+}, {
+  "id": 7,
+  "screenname": "どこかの誰か",
+  "toilet": {
+    "geolocation": [139.7329886, 35.6699347],
+    "name": "どこかの誰か",
+    "photo": [],
+    "note": ""
+  }
+}, {
+  "id": 8,
+  "screenname": "どこかの誰か",
+  "toilet": {
+    "geolocation": [139.7288794, 35.6697604],
+    "name": "どこかの誰か",
+    "photo": [],
+    "note": ""
   }
 }]
