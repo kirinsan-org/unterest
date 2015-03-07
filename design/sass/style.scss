@@ -265,7 +265,7 @@ footer#global-footer {
         display:block;
 
         img {
-          max-width:100%;  
+          max-width:100%;
         }
       }
 
@@ -282,7 +282,38 @@ footer#global-footer {
 
     }
   }
+
+  &.searchresult {
+    .card {
+      font-size: 40px;
+      background-color: rgb(95, 196, 240);
+      color: #FFF;
+      text-align: center;
+      -webkit-transition: background 0.3s ease-in-out 0s;
+-moz-transition: background 0.3s ease-in-out 0s;
+-ms-transition: background 0.3s ease-in-out 0s;
+-o-transition: background 0.3s ease-in-out 0s;
+transition: background 0.3s ease-in-out 0s;
+
+      .glyphicons{
+        font-size: 20px;
+        margin-left: 8px;
+      }
+    }
+
+    .deny .card{
+      background-color: #FF3708;
+    }
+
+    .allow .card{
+      background-color: green;
+    }
+
+  }
+
 }
+
+
 
 .layer1 {box-shadow:$dropShadowLv1!important;}
 .layer2 {box-shadow:$dropShadowLv2!important;}
@@ -293,20 +324,21 @@ footer#global-footer {
 
 .indicator {
   position: absolute;
-top: 0;
-left: 0;
-z-index: 1000;
-line-height: 128px;
-height: 128px;
-font-size: 128px;
-color: #FFF;
-font-family: impact,sans-serif;
-text-align: center;
-width: 100%;
-top: 50%;
-margin-top: -64px;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  line-height: 128px;
+  height: 128px;
+  font-size: 128px;
+  color: #FFF;
+  font-family: impact,sans-serif;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  margin-top: -64px;
   img {
     height:50%;
+    opacity:0;
   }
 }
 

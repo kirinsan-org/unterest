@@ -342,33 +342,58 @@ footer#global-footer > img {
   font-style: italic;
   text-align: center;
 }
-
 /* line 287, ../sass/style.scss */
+.cards.searchresult .card {
+  font-size: 40px;
+  background-color: #5fc4f0;
+  color: #FFF;
+  text-align: center;
+  -webkit-transition: background 0.3s ease-in-out 0s;
+  -moz-transition: background 0.3s ease-in-out 0s;
+  -ms-transition: background 0.3s ease-in-out 0s;
+  -o-transition: background 0.3s ease-in-out 0s;
+  transition: background 0.3s ease-in-out 0s;
+}
+/* line 298, ../sass/style.scss */
+.cards.searchresult .card .glyphicons {
+  font-size: 20px;
+  margin-left: 8px;
+}
+/* line 304, ../sass/style.scss */
+.cards.searchresult .deny .card {
+  background-color: #FF3708;
+}
+/* line 308, ../sass/style.scss */
+.cards.searchresult .allow .card {
+  background-color: green;
+}
+
+/* line 318, ../sass/style.scss */
 .layer1 {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* line 288, ../sass/style.scss */
+/* line 319, ../sass/style.scss */
 .layer2 {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* line 289, ../sass/style.scss */
+/* line 320, ../sass/style.scss */
 .layer3 {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25) !important;
 }
 
-/* line 290, ../sass/style.scss */
+/* line 321, ../sass/style.scss */
 .layer4 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.23) !important;
 }
 
-/* line 291, ../sass/style.scss */
+/* line 322, ../sass/style.scss */
 .layer5 {
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* line 294, ../sass/style.scss */
+/* line 325, ../sass/style.scss */
 .indicator {
   position: absolute;
   top: 0;
@@ -384,12 +409,13 @@ footer#global-footer > img {
   top: 50%;
   margin-top: -64px;
 }
-/* line 308, ../sass/style.scss */
+/* line 339, ../sass/style.scss */
 .indicator img {
   height: 50%;
+  opacity: 0;
 }
 
-/* line 315, ../sass/style.scss */
+/* line 347, ../sass/style.scss */
 h3 {
   font-weight: bold;
   font-size: 18px;
@@ -397,25 +423,25 @@ h3 {
   padding-bottom: 6px;
   margin-bottom: 6px;
 }
-/* line 322, ../sass/style.scss */
+/* line 354, ../sass/style.scss */
 h3 small {
   font-size: 10px;
   color: #999;
   display: inline-block;
 }
 
-/* line 330, ../sass/style.scss */
+/* line 362, ../sass/style.scss */
 .description {
   font-size: 10px;
   line-height: 1.4em;
   color: #999;
 }
 
-/* line 337, ../sass/style.scss */
+/* line 369, ../sass/style.scss */
 .rate {
   text-align: right;
 }
-/* line 339, ../sass/style.scss */
+/* line 371, ../sass/style.scss */
 .rate img {
   width: 16px;
 }

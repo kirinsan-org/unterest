@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="components/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
+
+  <link rel="stylesheet" href="components/glyphicons/glyphicons.css">
+
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+
+  <header id="global-header">
+    <h1><img src="images/brand.png" alt="Unterest" height="48"></h1>
+  </header>
+
+  <header id="mainvisual" class="keyVisual">
+    <div class="indicator" id="toilet-count">
+      <span class="counter"></span> <img src="images/tmark.svg" alt="" class="mark">
+    </div>
+    <div class="visual streetview">
+      <img src="http://maps.googleapis.com/maps/api/streetview?size=960x480&location=35.666087999999995,139.73195339999998&heading=235&sensor=false">
+    </div>
+
+    <a href="#" class="buttonCommon">+</a>
+  </header>
+
+  <section>
+    <ul id="main-cards" class="cards searchresult">
+      <li class="fullsize">
+        <div class="card">
+          <span class="glyphicons more"></span> 999m
+        </div>
+      </li>
+      <li class="fullsize">
+        <div class="card">
+          <span class="glyphicons more"></span> 999m
+        </div>
+      </li>
+      <li class="fullsize">
+        <div class="card">
+          <span class="glyphicons more"></span> 999m
+        </div>
+      </li>
+      <li class="fullsize">
+        <div class="card">
+          <span class="glyphicons more"></span> 999m
+        </div>
+      </li>
+      <li class="fullsize">
+        <div class="card">
+          <span class="glyphicons more"></span> 999m
+        </div>
+      </li>
+
+
+    </ul>
+  </section>
+
+  <script>
+
+    function setStatus($el,status){
+      $el.removeClass("deny allow");
+      $icon =$el.find(".glyphicons");
+
+      $icon.removeClass("mode remove ok");
+      if(status == "allow"){
+        $el.addClass("allow");
+        $icon.addClass("ok");
+      }else if(status == "deny"){
+        $el.addClass("deny");
+        $icon.addClass("remove");
+      }else{
+        $icon.addClass("more");
+      }
+    }
+
+    $("#main-cards").children("li").each(function(){
+
+      var table = ["allow","deny",false];
+      var sleep = (Math.floor(Math.random()*10000)+2000);
+
+
+      var $el = $(this)
+
+      var select = Math.floor(Math.random()*3);
+
+      console.log(sleep,select)
+
+      setTimeout(function(){
+        setStatus($el,table[select]);
+        console.log('Yo')
+
+      },sleep);
+
+    })
+  </script>
+
+
+  <footer id="global-footer">
+    <img src="images/kirinsanorg.svg" height="32" alt="">
+  </footer>
+
+
+
+<style>
+
+</style>
+<script>
+
+
+
+function setToiletCount(arg){
+  var $counter = $("#toilet-count").children(".counter");
+  var i = 0;
+  var interval = setInterval(function(){
+
+    var tmp = Math.round(arg - (arg - (i++ * 2)));
+
+    if(tmp >= arg){
+      $counter.text(arg);
+      clearInterval(interval);
+      setTimeout(function(){
+        $("img.mark").animate({"opacity":1});
+      },300)
+    }else{
+      $counter.text(tmp);
+    }
+
+  },30);
+}
+
+
+
+
+$(window).on(
+  {
+    "scroll":function(){
+
+      $(".visual.streetview img").css("marginTop",(function(){
+
+        return ($(this).scrollTop() / $(window).height() * 30) - 15 + "%"
+
+      })());
+
+    }
+
+});
+
+
+$(function(){
+  setTimeout(function(){
+    setToiletCount(100);
+  },3000);
+});
+
+
+</script>
+
+
+</body>
+</html>
