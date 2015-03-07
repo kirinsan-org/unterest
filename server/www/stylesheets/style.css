@@ -198,7 +198,7 @@ button .glyphicons {
 /* line 153, ../sass/style.scss */
 #mainvisual > div.visual.streetview > img, .keyVisual > div.visual.streetview > img {
   margin-top: -15%;
-  -webkit-filter: blur(9px);
+  /* -webkit-filter: blur(9px); */
 }
 
 @media (min-width: 992px) {

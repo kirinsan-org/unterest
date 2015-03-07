@@ -152,7 +152,7 @@ button {
     > div.visual.streetview {
       > img{
         margin-top:-15%;
-        -webkit-filter: blur(9px);
+        /* -webkit-filter: blur(9px); */
       }
     }
 
@@ -206,7 +206,7 @@ button {
     .first{
       display:none;
     }
-    
+
     .second{
       display:block;
     }
