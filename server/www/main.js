@@ -32,10 +32,10 @@ jQuery(function($) {
 
 
 
-        if(window.navigator.userAgent.toLowerCase().match("ios")){
+        if(window.navigator.userAgent.toLowerCase().match("iphone os")){
           window.location = "comgooglemaps://?q="+pos+"&center="+pos;
         }else{
-          window.open("https://www.google.co.jp/maps/dir/"+currentPos+"/"+currentPos+"/@"+pos+",16z");  
+          window.open("https://www.google.co.jp/maps/dir/"+currentPos+"/"+currentPos+"/@"+pos+",16z");
         }
 
 
