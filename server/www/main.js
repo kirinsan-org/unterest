@@ -23,7 +23,7 @@ jQuery(function($) {
 
       $li.on({'click': function() {
 
-        $(this).toggleClass("open");
+        $(this).children(".card").toggleClass("open");
 
         if (!confirm('ここへ行きますか？')) return;
 
