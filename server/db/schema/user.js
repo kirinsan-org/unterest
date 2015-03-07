@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var schema = module.exports = new mongoose.Schema({
   id: Number,
+  socketId: String,
   screenName: String,
   review: [{
     reviewer: Number,
@@ -30,6 +31,15 @@ var schema = module.exports = new mongoose.Schema({
   }
 });
 
+schema.statics.findBySocketId = function(socketId) {
+
+  return this.findOne({
+    socketId: socketId
+  }, {
+    id: 1
+  }).lean().exec();
+}
+
 schema.statics.findByLocation = function(lng, lat) {
 
   return this.find({
@@ -37,6 +47,11 @@ schema.statics.findByLocation = function(lng, lat) {
       $near: [lng, lat],
       $maxDistance: 1 / 111.12
     }
+  }, {
+    _id: 0,
+    __v: 0,
+    review: 0,
+    'toilet.photo': 0
   }).lean().exec().then(function(users) {
 
     return users.map(function(user) {
