@@ -20,7 +20,7 @@
     <h1><img src="images/brand.png" alt="Unterest" height="48"></h1>
   </header>
 
-  <header id="mainvisual" class="keyVisual">
+  <header id="mainvisual" class="keyVisual fullHeight">
     <div class="indicator" id="toilet-count">
       <span class="counter"></span> <img src="images/tmark.svg" alt="" class="mark">
     </div>
@@ -28,7 +28,10 @@
       <img src="http://maps.googleapis.com/maps/api/streetview?size=960x480&location=35.666087999999995,139.73195339999998&heading=235&sensor=false">
     </div>
 
-    <a href="#" class="buttonCommon">+</a>
+    <a href="#" class="buttonCommon lighten mainvisualCenter">
+      <div class="first"><span class="glyphicons fire">トイレ貸してください！</span></div>
+      <div class="second"><span class="glyphicons undo"></span></div>
+    </a>
   </header>
 
 
@@ -40,6 +43,28 @@
   </section>
 
   <script>
+
+
+  function setToiletCount(arg){
+    var $counter = $("#toilet-count").children(".counter");
+    var i = 0;
+    var interval = setInterval(function(){
+
+      var tmp = Math.round(arg - (arg - (i++ * 2)));
+
+      if(tmp >= arg){
+        $counter.text(arg);
+        clearInterval(interval);
+        setTimeout(function(){
+          $("img.mark").animate({"opacity":1});
+        },300)
+      }else{
+        $counter.text(tmp);
+      }
+
+    },30);
+  }
+
 
 
   var Geokit = function(callback){
@@ -80,47 +105,93 @@
     $(function(){
 
       var $entrance = $("#entrance");
-
       $entrance.find("button").on({"click":function(){
         $entrance.addClass("progress");
         geolocation.get(function(){
           $entrance.fadeOut();
-        })
+
+          if(!!window.location.host.match("localhost")){
+            var url = "/api/toilet/@35.72518644882094,139.7632000846558";
+          }else{
+            var url = "/api/toilet/@"+geolocation.result.coords.latitude+","+geolocation.result.coords.longitude;
+          }
+
+          $.ajax({
+            url: url,
+            dataType: "JSON",
+            cache: false,
+            success: function(data, textStatus){
+              setToiletCount(data.length);
+            },
+            error: function(xhr, textStatus, errorThrown){
+
+            }
+          });
+
+        });
       }});
-    })
+
+      $(window).on({"resize":function(){
+        var fullHeight = $(window).height() - $("#global-header").height() - $("#global-footer").height();
+        console.log(fullHeight);
+        $("#mainvisual.fullHeight").height(fullHeight)
+      }}).trigger("resize");
+
+      $(".buttonCommon").on({"click":function(){
+
+        if($("#mainvisual.fullHeight").length != 0){
+
+
+          $("#mainvisual.fullHeight").height("").removeClass("fullHeight")
+          $(this).removeClass("mainvisualCenter");
+
+          if(!!window.location.host.match("localhost")){
+            var url = "/api/toilet/@35.72518644882094,139.7632000846558";
+          }else{
+            var url = "/api/toilet/@"+geolocation.result.coords.latitude+","+geolocation.result.coords.longitude;
+          }
+
+
+          $.ajax({
+            url: url,
+            dataType: "JSON",
+            cache: false,
+            success: function(data, textStatus){
+              console.log("done:",data)
+              setTimeout(function(){
+                $.each(data,function(i){
+
+                  var $li = $("<li />").addClass("fullsize").html('<div class="card"><span class="glyphicons more"></span>'+ this.distance +' m</div>').css("opacity",0);
+                  $("#main-cards").append($li);
+                  setTimeout(function(){
+                    $li.animate({"opacity":1});
+                  },i*50);
+
+                })
+              },300)
+            },
+            error: function(xhr, textStatus, errorThrown){
+              console.log("isError")
+            }
+          });
+        }else{
+          $("#mainvisual").addClass("fullHeight");
+          $(this).addClass("mainvisualCenter");
+          $(window).trigger("resize");
+          $("#main-cards").children("li").fadeOut(function(){$(this).remove()});
+        }
+
+
+      }});
+
+    });
+
+
   </script>
 
 
   <section>
-    <ul id="main-cards" class="cards searchresult">
-      <li class="fullsize">
-        <div class="card">
-          <span class="glyphicons more"></span> 999m
-        </div>
-      </li>
-      <li class="fullsize">
-        <div class="card">
-          <span class="glyphicons more"></span> 999m
-        </div>
-      </li>
-      <li class="fullsize">
-        <div class="card">
-          <span class="glyphicons more"></span> 999m
-        </div>
-      </li>
-      <li class="fullsize">
-        <div class="card">
-          <span class="glyphicons more"></span> 999m
-        </div>
-      </li>
-      <li class="fullsize">
-        <div class="card">
-          <span class="glyphicons more"></span> 999m
-        </div>
-      </li>
-
-
-    </ul>
+    <ul id="main-cards" class="cards searchresult"></ul>
   </section>
 
   <script>
