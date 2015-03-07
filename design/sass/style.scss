@@ -28,6 +28,14 @@ $UICommonHeight : 48px;
 $UIHeaderHeight : $UICommonHeight;
 $UIFooterHeight : $UICommonHeight;
 
+/* drop shadow level*/
+
+$dropShadowLv1 : 0 1px 2px rgba(0, 0, 0, 0.4);
+$dropShadowLv2 : 0 2px 3px rgba(0, 0, 0, 0.3);
+$dropShadowLv3 : 0 3px 5px rgba(0, 0, 0, 0.25);
+$dropShadowLv4 : 0 4px 6px rgba(0, 0, 0, 0.23);
+$dropShadowLv5 : 0 5px 7px rgba(0, 0, 0, 0.20);
+
 
 html {
   height:100%;
@@ -147,8 +155,9 @@ footer#global-footer {
 
       background-color: #fff;
       margin:6px;
-      background-color: #CCC;
+      background-color: #FFF;
       padding:$cardPadding;
+      box-shadow:$dropShadowLv1;
 
       .visual {
         margin: $cardPadding*-1 $cardPadding*-1 0 $cardPadding*-1;
@@ -171,3 +180,9 @@ footer#global-footer {
     }
   }
 }
+
+.layer1 {box-shadow:$dropShadowLv1!important;}
+.layer2 {box-shadow:$dropShadowLv2!important;}
+.layer3 {box-shadow:$dropShadowLv3!important;}
+.layer4 {box-shadow:$dropShadowLv4!important;}
+.layer5 {box-shadow:$dropShadowLv5!important;}

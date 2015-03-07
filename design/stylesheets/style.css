@@ -71,28 +71,29 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /*Width*/
 /* colors */
 /* Elements sizes */
-/* line 32, ../sass/style.scss */
+/* drop shadow level*/
+/* line 40, ../sass/style.scss */
 html {
   height: 100%;
   width: 100%;
   position: relative;
 }
 
-/* line 37, ../sass/style.scss */
+/* line 45, ../sass/style.scss */
 body {
   padding-top: 48px;
   padding-bottom: 48px;
   position: relative;
 }
 
-/* line 43, ../sass/style.scss */
+/* line 51, ../sass/style.scss */
 header#global-header,
 footer#global-footer {
   width: 100%;
   position: absolute;
 }
 
-/* line 48, ../sass/style.scss */
+/* line 56, ../sass/style.scss */
 header#global-header {
   height: 48px;
   line-height: 48px;
@@ -101,7 +102,7 @@ header#global-header {
   top: 0;
 }
 
-/* line 57, ../sass/style.scss */
+/* line 65, ../sass/style.scss */
 footer#global-footer {
   height: 48px;
   line-height: 48px;
@@ -111,78 +112,78 @@ footer#global-footer {
 }
 
 /*メインビジュアル要素*/
-/* line 67, ../sass/style.scss */
+/* line 75, ../sass/style.scss */
 #mainvisual, .keyVisual {
   background-color: #ccc;
   min-height: 100px;
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 67, ../sass/style.scss */
+  /* line 75, ../sass/style.scss */
   #mainvisual, .keyVisual {
     height: 160px;
   }
 }
 @media (min-width: 370px) {
-  /* line 67, ../sass/style.scss */
+  /* line 75, ../sass/style.scss */
   #mainvisual, .keyVisual {
     height: 185px;
   }
 }
 @media (min-width: 410px) {
-  /* line 67, ../sass/style.scss */
+  /* line 75, ../sass/style.scss */
   #mainvisual, .keyVisual {
     height: 205px;
   }
 }
-/* line 86, ../sass/style.scss */
+/* line 94, ../sass/style.scss */
 #mainvisual > div.visual, .keyVisual > div.visual {
   overflow: hidden;
   width: 100%;
   height: 100%;
 }
-/* line 90, ../sass/style.scss */
+/* line 98, ../sass/style.scss */
 #mainvisual > div.visual > img, .keyVisual > div.visual > img {
   width: 100%;
 }
 
 @media (min-width: 992px) {
-  /* line 100, ../sass/style.scss */
+  /* line 108, ../sass/style.scss */
   body {
     display: block;
   }
 }
 @media (min-width: 1200px) {
-  /* line 101, ../sass/style.scss */
+  /* line 109, ../sass/style.scss */
   body {
     display: block;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 104, ../sass/style.scss */
+  /* line 112, ../sass/style.scss */
   body {
     display: block;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 107, ../sass/style.scss */
+  /* line 115, ../sass/style.scss */
   body {
     display: block;
   }
 }
 @media (min-width: 768px) {
-  /* line 110, ../sass/style.scss */
+  /* line 118, ../sass/style.scss */
   body {
     display: block;
   }
 }
 @media (max-width: 767px) {
-  /* line 113, ../sass/style.scss */
+  /* line 121, ../sass/style.scss */
   body {
     display: block;
   }
 }
-/* line 116, ../sass/style.scss */
+/* line 124, ../sass/style.scss */
 .buttonCommon {
   display: block;
   text-align: center;
@@ -196,39 +197,65 @@ footer#global-footer {
   border-radius: 32px;
   line-height: 64px;
 }
-/* line 133, ../sass/style.scss */
+/* line 141, ../sass/style.scss */
 #mainvisual .buttonCommon, .keyVisual .buttonCommon {
   position: absolute;
   bottom: -32px;
   right: 16px;
 }
 
-/* line 141, ../sass/style.scss */
+/* line 149, ../sass/style.scss */
 .cards {
   display: block;
 }
-/* line 144, ../sass/style.scss */
+/* line 152, ../sass/style.scss */
 .cards > li > .card {
   background-color: #fff;
   margin: 6px;
-  background-color: #CCC;
+  background-color: #FFF;
   padding: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
-/* line 153, ../sass/style.scss */
+/* line 162, ../sass/style.scss */
 .cards > li > .card .visual {
   margin: -12px -12px 0 -12px;
   overflow: hidden;
   clear: both;
   display: block;
 }
-/* line 160, ../sass/style.scss */
+/* line 169, ../sass/style.scss */
 .cards > li > .card p, .cards > li > .card blockquote {
   line-height: 1.4em;
   font-size: 95%;
   margin-bottom: 0.7em;
 }
-/* line 166, ../sass/style.scss */
+/* line 175, ../sass/style.scss */
 .cards > li > .card blockquote {
   font-style: italic;
   text-align: center;
+}
+
+/* line 184, ../sass/style.scss */
+.layer1 {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* line 185, ../sass/style.scss */
+.layer2 {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* line 186, ../sass/style.scss */
+.layer3 {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* line 187, ../sass/style.scss */
+.layer4 {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.23) !important;
+}
+
+/* line 188, ../sass/style.scss */
+.layer5 {
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2) !important;
 }
