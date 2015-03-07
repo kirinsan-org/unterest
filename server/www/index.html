@@ -45,6 +45,28 @@
   <script>
 
 
+  function setToiletCount(arg){
+    var $counter = $("#toilet-count").children(".counter");
+    var i = 0;
+    var interval = setInterval(function(){
+
+      var tmp = Math.round(arg - (arg - (i++ * 2)));
+
+      if(tmp >= arg){
+        $counter.text(arg);
+        clearInterval(interval);
+        setTimeout(function(){
+          $("img.mark").animate({"opacity":1});
+        },300)
+      }else{
+        $counter.text(tmp);
+      }
+
+    },30);
+  }
+
+
+
   var Geokit = function(callback){
     this.status = undefined;
     this.result = false;
@@ -87,6 +109,19 @@
         $entrance.addClass("progress");
         geolocation.get(function(){
           $entrance.fadeOut();
+
+          $.ajax({
+            url: "/api/toilet/@35.72518644882094,139.7632000846558",
+            dataType: "JSON",
+            cache: false,
+            success: function(data, textStatus){
+              setToiletCount(data.length);
+            },
+            error: function(xhr, textStatus, errorThrown){
+              // エラー処理
+            }
+          });
+
         });
       }});
 
@@ -99,6 +134,21 @@
       $(".buttonCommon").on({"click":function(){
         $("#mainvisual.fullHeight").height("").removeClass("fullHeight")
         $(this).removeClass("mainvisualCenter");
+
+        $.ajax({
+          url: "/api/toilet/@35.72518644882094,139.7632000846558",
+          dataType: "JSON",
+          cache: false,
+          success: function(data, textStatus){
+            // 成功したとき
+            // data にサーバーから返された html が入る
+            console.log(data);
+          },
+          error: function(xhr, textStatus, errorThrown){
+            // エラー処理
+          }
+        });
+
       }});
 
     });

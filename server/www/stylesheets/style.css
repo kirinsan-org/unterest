@@ -3,6 +3,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@import url(http://fonts.googleapis.com/css?family=Oswald:700);
 /* line 5, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -72,14 +73,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* colors */
 /* Elements sizes */
 /* drop shadow level*/
-/* line 42, ../sass/style.scss */
+/* line 43, ../sass/style.scss */
 html {
   height: 100%;
   width: 100%;
   position: relative;
 }
 
-/* line 47, ../sass/style.scss */
+/* line 48, ../sass/style.scss */
 body {
   padding-top: 48px;
   padding-bottom: 48px;
@@ -87,7 +88,7 @@ body {
   font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 }
 
-/* line 54, ../sass/style.scss */
+/* line 55, ../sass/style.scss */
 header#global-header,
 footer#global-footer {
   width: 100%;
@@ -95,7 +96,7 @@ footer#global-footer {
   box-shadow: 0 0px 0px black;
 }
 
-/* line 61, ../sass/style.scss */
+/* line 62, ../sass/style.scss */
 header#global-header {
   height: 48px;
   line-height: 48px;
@@ -104,7 +105,7 @@ header#global-header {
   top: 0;
 }
 
-/* line 70, ../sass/style.scss */
+/* line 71, ../sass/style.scss */
 footer#global-footer {
   height: 48px;
   line-height: 48px;
@@ -112,12 +113,12 @@ footer#global-footer {
   text-align: center;
   bottom: 0;
 }
-/* line 76, ../sass/style.scss */
+/* line 77, ../sass/style.scss */
 footer#global-footer > img {
   margin: 8px auto;
 }
 
-/* line 80, ../sass/style.scss */
+/* line 81, ../sass/style.scss */
 button {
   -webkit-tap-highlight-color: transparent;
   height: 48px;
@@ -135,25 +136,25 @@ button {
   font-weight: bold;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
-/* line 85, ../sass/style.scss */
+/* line 86, ../sass/style.scss */
 button.lighten {
   background-color: #ff7630;
 }
-/* line 100, ../sass/style.scss */
+/* line 101, ../sass/style.scss */
 button:focus {
   outline: none;
 }
-/* line 104, ../sass/style.scss */
+/* line 105, ../sass/style.scss */
 button:active {
   top: 3px;
 }
-/* line 108, ../sass/style.scss */
+/* line 109, ../sass/style.scss */
 button .glyphicons {
   top: 2px;
 }
 
 /*メインビジュアル要素*/
-/* line 116, ../sass/style.scss */
+/* line 117, ../sass/style.scss */
 #mainvisual, .keyVisual {
   background-color: #ccc;
   min-height: 100px;
@@ -161,82 +162,82 @@ button .glyphicons {
   transition: height 0.5s ease-in-out 0s;
 }
 @media (max-width: 767px) {
-  /* line 116, ../sass/style.scss */
+  /* line 117, ../sass/style.scss */
   #mainvisual, .keyVisual {
     height: 160px;
   }
 }
 @media (min-width: 370px) {
-  /* line 116, ../sass/style.scss */
+  /* line 117, ../sass/style.scss */
   #mainvisual, .keyVisual {
     height: 185px;
   }
 }
 @media (min-width: 410px) {
-  /* line 116, ../sass/style.scss */
+  /* line 117, ../sass/style.scss */
   #mainvisual, .keyVisual {
     height: 205px;
   }
 }
 @media (min-width: 768px) {
-  /* line 116, ../sass/style.scss */
+  /* line 117, ../sass/style.scss */
   #mainvisual, .keyVisual {
     height: 384px;
   }
 }
-/* line 141, ../sass/style.scss */
+/* line 142, ../sass/style.scss */
 #mainvisual > div.visual, .keyVisual > div.visual {
   overflow: hidden;
   width: 100%;
   height: 100%;
 }
-/* line 145, ../sass/style.scss */
+/* line 146, ../sass/style.scss */
 #mainvisual > div.visual > img, .keyVisual > div.visual > img {
   width: 100%;
 }
-/* line 152, ../sass/style.scss */
+/* line 153, ../sass/style.scss */
 #mainvisual > div.visual.streetview > img, .keyVisual > div.visual.streetview > img {
   margin-top: -15%;
   -webkit-filter: blur(9px);
 }
 
 @media (min-width: 992px) {
-  /* line 162, ../sass/style.scss */
-  body {
-    display: block;
-  }
-}
-@media (min-width: 1200px) {
   /* line 163, ../sass/style.scss */
   body {
     display: block;
   }
 }
+@media (min-width: 1200px) {
+  /* line 164, ../sass/style.scss */
+  body {
+    display: block;
+  }
+}
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 166, ../sass/style.scss */
+  /* line 167, ../sass/style.scss */
   body {
     display: block;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 169, ../sass/style.scss */
+  /* line 170, ../sass/style.scss */
   body {
     display: block;
   }
 }
 @media (min-width: 768px) {
-  /* line 172, ../sass/style.scss */
+  /* line 173, ../sass/style.scss */
   body {
     display: block;
   }
 }
 @media (max-width: 767px) {
-  /* line 175, ../sass/style.scss */
+  /* line 176, ../sass/style.scss */
   body {
     display: block;
   }
 }
-/* line 178, ../sass/style.scss */
+/* line 179, ../sass/style.scss */
 .buttonCommon {
   display: block;
   text-align: center;
@@ -252,25 +253,25 @@ button .glyphicons {
   border-radius: 32px;
   line-height: 64px;
 }
-/* line 190, ../sass/style.scss */
+/* line 191, ../sass/style.scss */
 .buttonCommon.lighten {
   background-color: #ff7630;
 }
-/* line 201, ../sass/style.scss */
+/* line 202, ../sass/style.scss */
 #mainvisual .buttonCommon, .keyVisual .buttonCommon {
   position: absolute;
   bottom: -32px;
   right: 16px;
 }
-/* line 205, ../sass/style.scss */
+/* line 206, ../sass/style.scss */
 #mainvisual .buttonCommon .first, .keyVisual .buttonCommon .first {
   display: none;
 }
-/* line 208, ../sass/style.scss */
+/* line 210, ../sass/style.scss */
 #mainvisual .buttonCommon .second, .keyVisual .buttonCommon .second {
   display: block;
 }
-/* line 211, ../sass/style.scss */
+/* line 214, ../sass/style.scss */
 #mainvisual .buttonCommon.mainvisualCenter, .keyVisual .buttonCommon.mainvisualCenter {
   right: 50%;
   bottom: 20%;
@@ -278,31 +279,37 @@ button .glyphicons {
   width: 300px;
   margin: 0 -150px;
 }
-/* line 217, ../sass/style.scss */
+@media (max-width: 410px) {
+  /* line 214, ../sass/style.scss */
+  #mainvisual .buttonCommon.mainvisualCenter, .keyVisual .buttonCommon.mainvisualCenter {
+    bottom: 8%;
+  }
+}
+/* line 226, ../sass/style.scss */
 #mainvisual .buttonCommon.mainvisualCenter .first, .keyVisual .buttonCommon.mainvisualCenter .first {
   display: block;
 }
-/* line 220, ../sass/style.scss */
+/* line 229, ../sass/style.scss */
 #mainvisual .buttonCommon.mainvisualCenter .second, .keyVisual .buttonCommon.mainvisualCenter .second {
   display: none;
 }
 
-/* line 232, ../sass/style.scss */
+/* line 241, ../sass/style.scss */
 .cards {
   display: block;
 }
-/* line 235, ../sass/style.scss */
+/* line 244, ../sass/style.scss */
 .cards:after {
   content: "";
   display: block;
   clear: both;
   zoom: 1;
 }
-/* line 244, ../sass/style.scss */
+/* line 253, ../sass/style.scss */
 .cards > li {
   width: 100%;
 }
-/* line 246, ../sass/style.scss */
+/* line 255, ../sass/style.scss */
 .cards > li:after {
   content: "";
   display: block;
@@ -310,51 +317,51 @@ button .glyphicons {
   zoom: 1;
 }
 @media (min-width: 480px) and (max-width: 767px) {
-  /* line 244, ../sass/style.scss */
+  /* line 253, ../sass/style.scss */
   .cards > li {
     width: 50%;
     float: left;
   }
-  /* line 259, ../sass/style.scss */
+  /* line 268, ../sass/style.scss */
   .cards > li.double, .cards > li.triple, .cards > li.fullsize {
     width: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 244, ../sass/style.scss */
+  /* line 253, ../sass/style.scss */
   .cards > li {
     width: 33.333%;
     float: left;
   }
-  /* line 268, ../sass/style.scss */
+  /* line 277, ../sass/style.scss */
   .cards > li.double {
     width: 66.666%;
   }
-  /* line 272, ../sass/style.scss */
+  /* line 281, ../sass/style.scss */
   .cards > li.triple, .cards > li.fullsize {
     width: 100%;
   }
 }
 @media (min-width: 992px) {
-  /* line 244, ../sass/style.scss */
+  /* line 253, ../sass/style.scss */
   .cards > li {
     width: 25%;
     float: left;
   }
-  /* line 282, ../sass/style.scss */
+  /* line 291, ../sass/style.scss */
   .cards > li.double {
     width: 50%;
   }
-  /* line 286, ../sass/style.scss */
+  /* line 295, ../sass/style.scss */
   .cards > li.triple {
     width: 75%;
   }
-  /* line 290, ../sass/style.scss */
+  /* line 299, ../sass/style.scss */
   .cards > li.fullsize {
     width: 100%;
   }
 }
-/* line 295, ../sass/style.scss */
+/* line 304, ../sass/style.scss */
 .cards > li > .card {
   background-color: #fff;
   margin: 6px;
@@ -362,29 +369,29 @@ button .glyphicons {
   padding: 12px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
-/* line 305, ../sass/style.scss */
+/* line 314, ../sass/style.scss */
 .cards > li > .card .visual {
   margin: -12px -12px 12px -12px;
   overflow: hidden;
   clear: both;
   display: block;
 }
-/* line 311, ../sass/style.scss */
+/* line 320, ../sass/style.scss */
 .cards > li > .card .visual img {
   max-width: 100%;
 }
-/* line 316, ../sass/style.scss */
+/* line 325, ../sass/style.scss */
 .cards > li > .card p, .cards > li > .card blockquote {
   line-height: 1.4em;
   font-size: 95%;
   margin-bottom: 0.7em;
 }
-/* line 322, ../sass/style.scss */
+/* line 331, ../sass/style.scss */
 .cards > li > .card blockquote {
   font-style: italic;
   text-align: center;
 }
-/* line 331, ../sass/style.scss */
+/* line 340, ../sass/style.scss */
 .cards.searchresult .card {
   font-size: 40px;
   background-color: #5fc4f0;
@@ -396,46 +403,46 @@ button .glyphicons {
   -o-transition: background 0.3s ease-in-out 0s;
   transition: background 0.3s ease-in-out 0s;
 }
-/* line 342, ../sass/style.scss */
+/* line 351, ../sass/style.scss */
 .cards.searchresult .card .glyphicons {
   font-size: 20px;
   margin-left: 8px;
 }
-/* line 348, ../sass/style.scss */
+/* line 357, ../sass/style.scss */
 .cards.searchresult .deny .card {
   background-color: #FF3708;
 }
-/* line 352, ../sass/style.scss */
+/* line 361, ../sass/style.scss */
 .cards.searchresult .allow .card {
   background-color: green;
 }
 
-/* line 362, ../sass/style.scss */
+/* line 371, ../sass/style.scss */
 .layer1 {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* line 363, ../sass/style.scss */
+/* line 372, ../sass/style.scss */
 .layer2 {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* line 364, ../sass/style.scss */
+/* line 373, ../sass/style.scss */
 .layer3 {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25) !important;
 }
 
-/* line 365, ../sass/style.scss */
+/* line 374, ../sass/style.scss */
 .layer4 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.23) !important;
 }
 
-/* line 366, ../sass/style.scss */
+/* line 375, ../sass/style.scss */
 .layer5 {
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* line 369, ../sass/style.scss */
+/* line 378, ../sass/style.scss */
 .indicator {
   position: absolute;
   top: 0;
@@ -445,19 +452,29 @@ button .glyphicons {
   height: 128px;
   font-size: 128px;
   color: #FFF;
-  font-family: impact,sans-serif;
+  font-family: Oswald ,sans-serif;
+  font-weight: 700;
   text-align: center;
   width: 100%;
   top: 50%;
   margin-top: -64px;
 }
-/* line 383, ../sass/style.scss */
+@media (max-width: 410px) {
+  /* line 378, ../sass/style.scss */
+  .indicator {
+    line-height: 96px;
+    height: 96px;
+    font-size: 96px;
+    margin-top: -48px;
+  }
+}
+/* line 401, ../sass/style.scss */
 .indicator img {
   height: 50%;
   opacity: 0;
 }
 
-/* line 391, ../sass/style.scss */
+/* line 409, ../sass/style.scss */
 h3 {
   font-weight: bold;
   font-size: 18px;
@@ -465,30 +482,30 @@ h3 {
   padding-bottom: 6px;
   margin-bottom: 6px;
 }
-/* line 398, ../sass/style.scss */
+/* line 416, ../sass/style.scss */
 h3 small {
   font-size: 10px;
   color: #999;
   display: inline-block;
 }
 
-/* line 406, ../sass/style.scss */
+/* line 424, ../sass/style.scss */
 .description {
   font-size: 10px;
   line-height: 1.4em;
   color: #999;
 }
 
-/* line 413, ../sass/style.scss */
+/* line 431, ../sass/style.scss */
 .rate {
   text-align: right;
 }
-/* line 415, ../sass/style.scss */
+/* line 433, ../sass/style.scss */
 .rate img {
   width: 16px;
 }
 
-/* line 421, ../sass/style.scss */
+/* line 439, ../sass/style.scss */
 #entrance {
   position: fixed;
   top: 0;
@@ -504,7 +521,7 @@ h3 small {
   height: 100%;
   text-align: center;
 }
-/* line 435, ../sass/style.scss */
+/* line 453, ../sass/style.scss */
 #entrance .lowerComponents {
   position: absolute;
   bottom: 0;
@@ -513,13 +530,13 @@ h3 small {
   height: 96px;
   line-height: 96px;
 }
-/* line 441, ../sass/style.scss */
+/* line 459, ../sass/style.scss */
 #entrance .lowerComponents button {
   position: relative;
   top: 0;
   transition: top 0.3s ease-in-out 0s;
 }
-/* line 447, ../sass/style.scss */
+/* line 465, ../sass/style.scss */
 #entrance .lowerComponents img.progress {
   position: absolute;
   margin: -8px;
@@ -527,11 +544,11 @@ h3 small {
   left: 50%;
   transition: top 0.3s ease-in-out 0s;
 }
-/* line 457, ../sass/style.scss */
+/* line 475, ../sass/style.scss */
 #entrance.progress .lowerComponents button {
   top: 120px;
 }
-/* line 461, ../sass/style.scss */
+/* line 479, ../sass/style.scss */
 #entrance.progress .lowerComponents img.progress {
   top: 50%;
 }
