@@ -1,0 +1,173 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+
+/*Width*/
+$phoneMaxWidth : 767px;
+$phoneMinWidth : 320px;
+
+$phabletWidth:410px;
+$phoneLargeWidth:370px;
+
+$tabletMinWidth : $phoneMaxWidth +1;
+$tabletMaxWidth : 991px;
+$pcMinWidth : $tabletMaxWidth+1;
+$pcDefaultWidth : 1199px;
+$pcHighdefWidth : 1200px;
+
+/* colors */
+$keyColor : #F8E607 ;
+
+
+/* Elements sizes */
+$UICommonHeight : 48px;
+$UIHeaderHeight : $UICommonHeight;
+$UIFooterHeight : $UICommonHeight;
+
+
+html {
+  height:100%;
+  width:100%;
+  position: relative;
+}
+body {
+  padding-top:$UIHeaderHeight;
+  padding-bottom:$UIFooterHeight;
+  position: relative;
+}
+
+header#global-header ,
+footer#global-footer {
+  width:100%;position: absolute;
+  }
+
+header#global-header {
+  height:$UIHeaderHeight;
+  line-height:$UIHeaderHeight;
+  background-color: $keyColor;
+  text-align:center;
+  top:0;
+
+}
+
+footer#global-footer {
+  height:$UIFooterHeight;
+  line-height:$UIFooterHeight;
+  background-color: $keyColor;
+  text-align:center;
+  bottom:0;
+}
+
+/*メインビジュアル要素*/
+
+#mainvisual , .keyVisual {
+  background-color: #ccc;
+  min-height:100px;
+  position: relative;
+
+  $ratio :0.5;
+  //Smartphones
+  @media (max-width: $phoneMaxWidth) {
+    height:$phoneMinWidth*$ratio;
+  }
+
+  @media (min-width: $phoneLargeWidth) {
+    height:$phoneLargeWidth*$ratio;
+  }
+
+  @media (min-width: $phabletWidth) {
+    height:$phabletWidth*$ratio;
+  }
+
+    > div.visual {
+      overflow: hidden;
+      width: 100%;height: 100%;
+
+      > img{
+        width:100%;
+      }
+
+    }
+
+}
+
+
+
+@media (min-width: $pcMinWidth) {body{display:block;}}
+@media (min-width: $pcHighdefWidth) {body{display:block;}}
+
+//Tablet(portrait)
+@media (min-width: $tabletMinWidth) and (max-width: $tabletMaxWidth) {body{display:block;}}
+
+//Tablet(landscape)
+@media (min-width: $pcMinWidth) and (max-width: $pcDefaultWidth) {body{display:block;}}
+
+//Up to smart
+@media (min-width: $tabletMinWidth ) {body{display:block;}}
+
+//Smartphones
+@media (max-width: $phoneMaxWidth) {body{display:block;}}
+
+
+.buttonCommon {
+
+  $height : 64px;
+
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  background-color:$keyColor;
+  position: relative;
+  z-index:1000;
+
+  height:$height;
+  width:$height;
+  border-radius:$height/2;
+  line-height:$height;
+
+  #mainvisual & , .keyVisual & {
+    position: absolute;
+    bottom:$height * -0.5;
+    right:$height * 0.25;
+  }
+
+}
+
+.cards {
+  display:block;
+  > li {
+    > .card {
+
+      $cardPadding:12px;
+
+      background-color: #fff;
+      margin:6px;
+      background-color: #CCC;
+      padding:$cardPadding;
+
+      .visual {
+        margin: $cardPadding*-1 $cardPadding*-1 0 $cardPadding*-1;
+        overflow: hidden;
+        clear:both;
+        display:block;
+      }
+
+      p , blockquote {
+        line-height: 1.4em;
+        font-size: 95%;
+        margin-bottom: 0.7em;
+      }
+
+      blockquote {
+        font-style:italic;
+        text-align:center;
+      }
+
+    }
+  }
+}
