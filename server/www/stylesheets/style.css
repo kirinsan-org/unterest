@@ -386,19 +386,26 @@ button .glyphicons {
   background-position: center;
   background-size: cover;
   margin: 12px -12px -12px -12px;
+  height: 0px;
+  transition: height 0.5s ease-in-out 0s;
 }
-/* line 332, ../sass/style.scss */
+/* line 335, ../sass/style.scss */
+.cards > li > .card.open .map {
+  display: block;
+  height: 210px;
+}
+/* line 341, ../sass/style.scss */
 .cards > li > .card p, .cards > li > .card blockquote {
   line-height: 1.4em;
   font-size: 95%;
   margin-bottom: 0.7em;
 }
-/* line 338, ../sass/style.scss */
+/* line 347, ../sass/style.scss */
 .cards > li > .card blockquote {
   font-style: italic;
   text-align: center;
 }
-/* line 347, ../sass/style.scss */
+/* line 356, ../sass/style.scss */
 .cards.searchresult .card {
   font-size: 40px;
   background-color: #5fc4f0;
@@ -410,46 +417,46 @@ button .glyphicons {
   -o-transition: background 0.3s ease-in-out 0s;
   transition: background 0.3s ease-in-out 0s;
 }
-/* line 358, ../sass/style.scss */
+/* line 367, ../sass/style.scss */
 .cards.searchresult .card .glyphicons {
   font-size: 20px;
   margin-left: 8px;
 }
-/* line 364, ../sass/style.scss */
+/* line 373, ../sass/style.scss */
 .cards.searchresult .deny .card {
   background-color: #FF3708;
 }
-/* line 368, ../sass/style.scss */
+/* line 377, ../sass/style.scss */
 .cards.searchresult .allow .card {
   background-color: green;
 }
 
-/* line 378, ../sass/style.scss */
+/* line 387, ../sass/style.scss */
 .layer1 {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* line 379, ../sass/style.scss */
+/* line 388, ../sass/style.scss */
 .layer2 {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* line 380, ../sass/style.scss */
+/* line 389, ../sass/style.scss */
 .layer3 {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25) !important;
 }
 
-/* line 381, ../sass/style.scss */
+/* line 390, ../sass/style.scss */
 .layer4 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.23) !important;
 }
 
-/* line 382, ../sass/style.scss */
+/* line 391, ../sass/style.scss */
 .layer5 {
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* line 385, ../sass/style.scss */
+/* line 394, ../sass/style.scss */
 .indicator {
   position: absolute;
   top: 0;
@@ -467,7 +474,7 @@ button .glyphicons {
   margin-top: -64px;
 }
 @media (max-width: 410px) {
-  /* line 385, ../sass/style.scss */
+  /* line 394, ../sass/style.scss */
   .indicator {
     line-height: 96px;
     height: 96px;
@@ -475,13 +482,13 @@ button .glyphicons {
     margin-top: -48px;
   }
 }
-/* line 408, ../sass/style.scss */
+/* line 417, ../sass/style.scss */
 .indicator img {
   height: 50%;
   opacity: 0;
 }
 
-/* line 416, ../sass/style.scss */
+/* line 425, ../sass/style.scss */
 h3 {
   font-weight: bold;
   font-size: 18px;
@@ -489,30 +496,30 @@ h3 {
   padding-bottom: 6px;
   margin-bottom: 6px;
 }
-/* line 423, ../sass/style.scss */
+/* line 432, ../sass/style.scss */
 h3 small {
   font-size: 10px;
   color: #999;
   display: inline-block;
 }
 
-/* line 431, ../sass/style.scss */
+/* line 440, ../sass/style.scss */
 .description {
   font-size: 10px;
   line-height: 1.4em;
   color: #999;
 }
 
-/* line 438, ../sass/style.scss */
+/* line 447, ../sass/style.scss */
 .rate {
   text-align: right;
 }
-/* line 440, ../sass/style.scss */
+/* line 449, ../sass/style.scss */
 .rate img {
   width: 16px;
 }
 
-/* line 446, ../sass/style.scss */
+/* line 455, ../sass/style.scss */
 #entrance {
   position: fixed;
   top: 0;
@@ -528,7 +535,7 @@ h3 small {
   height: 100%;
   text-align: center;
 }
-/* line 460, ../sass/style.scss */
+/* line 469, ../sass/style.scss */
 #entrance .lowerComponents {
   position: absolute;
   bottom: 0;
@@ -537,13 +544,13 @@ h3 small {
   height: 96px;
   line-height: 96px;
 }
-/* line 466, ../sass/style.scss */
+/* line 475, ../sass/style.scss */
 #entrance .lowerComponents button {
   position: relative;
   top: 0;
   transition: top 0.3s ease-in-out 0s;
 }
-/* line 472, ../sass/style.scss */
+/* line 481, ../sass/style.scss */
 #entrance .lowerComponents img.progress {
   position: absolute;
   margin: -8px;
@@ -551,11 +558,11 @@ h3 small {
   left: 50%;
   transition: top 0.3s ease-in-out 0s;
 }
-/* line 482, ../sass/style.scss */
+/* line 491, ../sass/style.scss */
 #entrance.progress .lowerComponents button {
   top: 120px;
 }
-/* line 486, ../sass/style.scss */
+/* line 495, ../sass/style.scss */
 #entrance.progress .lowerComponents img.progress {
   top: 50%;
 }

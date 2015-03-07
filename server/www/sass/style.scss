@@ -327,6 +327,15 @@ button {
         background-position: center;
         background-size: cover;
         margin: 12px -12px -12px -12px;
+        height: 0px;
+        transition:height 0.5s ease-in-out 0s;
+      }
+
+      &.open {
+        .map {
+          display:block;
+          height: 210px;
+        }
       }
 
       p , blockquote {
