@@ -30,7 +30,11 @@ jQuery(function($) {
 
         var currentPos = geolocation.result.coords.latitude + "," + geolocation.result.coords.longitude;
 
-        window.open("https://www.google.co.jp/maps/dir/"+currentPos+"/"+currentPos+"/@"+pos+",16z");
+        //window.open("https://www.google.co.jp/maps/dir/"+currentPos+"/"+currentPos+"/@"+pos+",16z");
+
+        window.open("https://www.google.co.jp/maps/dir///@"+pos+",19z?hl=ja");
+
+
 
         socket.emit('user.thankYou', {
           target: data.source,
