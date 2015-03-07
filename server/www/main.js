@@ -16,7 +16,15 @@ jQuery(function($) {
 
     // ここへ行く
     if (data.result) {
-      $li.one('click', function() {
+
+      var pos = $li.attr("data-position");
+      $li.children(".card")
+        .append('<div class="map"><img src="https://maps.googleapis.com/maps/api/staticmap?center='+pos+'&zoom=15&size=400x200&markers='+pos+'" alt=""></div>');
+
+      $li.on({'click': function() {
+
+        $(this).toggleClass("open");
+
         if (!confirm('ここへ行きますか？')) return;
 
         socket.emit('user.thankYou', {
@@ -24,8 +32,7 @@ jQuery(function($) {
           userId: userId
         });
 
-        $('#main-cards li').off('click');
-      });
+      }});
     }
   });
 
@@ -107,9 +114,19 @@ jQuery(function($) {
 
         if (!!window.location.host.match("localhost")) {
           var url = "/api/toilet/@35.72518644882094,139.7632000846558";
+          var sturl = '//maps.googleapis.com/maps/api/streetview?size=960x480&location=35.666087999999995,139.73195339999998&heading=235&sensor=false';
         } else {
           var url = "/api/toilet/@" + geolocation.result.coords.latitude + "," + geolocation.result.coords.longitude;
+          var sturl = '//maps.googleapis.com/maps/api/streetview?size=960x480&location='+ geolocation.result.coords.latitude + "," + geolocation.result.coords.longitude + '&heading=235&sensor=false'
         }
+
+        $vis = $(".visual.streetview");
+        $vis.find("img").fadeOut(function(){
+          var $img = $("<img />").attr('src',sturl).hide();
+          $vis.append($img);
+          $img.fadeIn()
+        })
+
 
         $.ajax({
           url: url,
@@ -165,6 +182,7 @@ jQuery(function($) {
                   // 後で返答を受けた時に検索するために付ける
                   .attr('data-user-id', item.id)
                   .attr('data-socket-id', item.source)
+                  .attr('data-position', item.toilet.geolocation[1]+","+item.toilet.geolocation[0])
                   .html('<div class="card"><span class="glyphicons more"></span>' + this.distance.toFixed(1) + ' m</div>')
                   .css("opacity", 0);
                 $("#main-cards").append($li);
