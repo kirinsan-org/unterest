@@ -31,10 +31,6 @@
     <a href="#" class="buttonCommon">+</a>
   </header>
 
-
-  <section id="entrance">
-    
-  </section>
   <section>
     <ul id="main-cards" class="cards searchresult">
       <li class="fullsize">
@@ -104,8 +100,6 @@
       },sleep);
 
     })
-
-
   </script>
 
 
@@ -114,7 +108,34 @@
   </footer>
 
 
+
+<style>
+
+</style>
 <script>
+
+
+
+function setToiletCount(arg){
+  var $counter = $("#toilet-count").children(".counter");
+  var i = 0;
+  var interval = setInterval(function(){
+
+    var tmp = Math.round(arg - (arg - (i++ * 2)));
+
+    if(tmp >= arg){
+      $counter.text(arg);
+      clearInterval(interval);
+      setTimeout(function(){
+        $("img.mark").animate({"opacity":1});
+      },300)
+    }else{
+      $counter.text(tmp);
+    }
+
+  },30);
+}
+
 
 
 
@@ -130,6 +151,13 @@ $(window).on(
 
     }
 
+});
+
+
+$(function(){
+  setTimeout(function(){
+    setToiletCount(100);
+  },3000);
 });
 
 
