@@ -49,7 +49,7 @@
 
   <script src="/socket.io/socket.io.js"></script>
   <script>
-  angular.module('Owner', ['ngMaterial']).controller('Main', function($scope, $http, $timeout) {
+  angular.module('Owner', ['ngMaterial']).controller('Main', function($scope, $http, $timeout, $mdToast) {
 
     // var userId = prompt('1～6までのどれか')
     var userId = '1'
@@ -94,14 +94,9 @@
     socket.on('user.thankYou', function(data) {
       console.log(data);
 
-      $scope.userWillCome = true;
       $http.get('api/user/' + data.userId).success(function(user) {
-        $scope.user = user;
+        $mdToast.show($mdToast.simple().content(user.screenname + 'の命はあなたによって救われました。'));
       });
-
-      $timeout(function() {
-        $scope.userWillCome = false;
-      }, 10000);
 
       $scope.$apply();
     });
@@ -114,14 +109,9 @@
     socket.on('user.cancel', function(data) {
       console.log(data);
 
-      $scope.userCanceled = true;
       $http.get('api/user/' + data.userId).success(function(user) {
-        $scope.user = user;
+        $mdToast.show($mdToast.simple().content(user.screenname + 'は他の人に助けられたようです。'));
       });
-
-      $timeout(function() {
-        $scope.userCanceled = false;
-      }, 10000);
 
       $scope.$apply();
     });
