@@ -33,7 +33,7 @@ jQuery(function($) {
         //window.open("https://www.google.co.jp/maps/dir/"+currentPos+"/"+currentPos+"/@"+pos+",16z");
 
         //window.open("https://www.google.co.jp/maps/dir///@"+pos+",19z?hl=ja");
-        window.location = "comgooglemaps://q="+pos+"&center="+pos;
+        window.location = "comgooglemaps://?q="+pos+"&center="+pos;
 
 
         socket.emit('user.thankYou', {
