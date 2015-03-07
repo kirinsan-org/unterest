@@ -22,11 +22,13 @@ jQuery(function($) {
         .append('<div class="map" style="background-image:url(https://maps.googleapis.com/maps/api/staticmap?center='+pos+'&zoom=15&size=400x200&markers='+pos+')"></div>');
 
 
-      $li.find(".map").append($("<button />").text("Help").on({"click":function(){
+      $li.find(".map").append($("<button />").addClass("go").text("今から行く").on({"click":function(){
         socket.emit('user.thankYou', {
           target: data.source,
           userId: userId
         });
+      }})).append($("<button />").addClass("info").text("詳細を見る").on({"click":function(){
+        /**/
       }}));
 
       $li.on({'click': function() {

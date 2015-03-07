@@ -339,6 +339,20 @@ button {
           border:12px solid green;
           border-color:green rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0);
         }
+
+        button {
+          width: 50%;
+          bottom: 0;
+          position: absolute;
+          top: auto;
+
+          &.go {
+            left:0;
+          }
+          &.more {
+            right:0;  
+          }
+        }
       }
 
       &.open {
