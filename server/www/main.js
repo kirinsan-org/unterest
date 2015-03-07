@@ -19,7 +19,7 @@ jQuery(function($) {
 
       var pos = $li.attr("data-position");
       $li.children(".card")
-        .append('<div class="map"><img src="https://maps.googleapis.com/maps/api/staticmap?center='+pos+'&zoom=15&size=400x200&markers='+pos+'" alt=""></div>');
+        .append('<div class="map" style="background-image:url(https://maps.googleapis.com/maps/api/staticmap?center='+pos+'&zoom=15&size=400x200&markers='+pos+')"></div>');
 
       $li.on({'click': function() {
 
