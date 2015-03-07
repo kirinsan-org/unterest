@@ -162,19 +162,51 @@ footer#global-footer {
 
   > li {
 
+    &:after{
+      content:"";
+      display:block;
+      clear:both;
+      zoom:1;
+    }
+
     @media  (min-width: $phoneLandscapeMinWidth) and (max-width: $phoneMaxWidth)  {
       width:50%;
       float:left;
+
+      &.double , &.triple , &.fullsize {
+        width:100%;
+      }
     }
 
     @media (min-width: $tabletMinWidth ) and (max-width: $tabletMaxWidth ){
       width:33.333%;
       float:left;
+
+      &.double {
+        width:66.666%;
+      }
+
+      &.triple , &.fullsize {
+        width:100%;
+      }
+
     }
 
     @media (min-width: $pcMinWidth ) {
       width:25%;
       float:left;
+
+      &.double {
+        width:50%;
+      }
+
+      &.triple {
+        width:75%;
+      }
+
+      &.fullsize {
+        width:100%;
+      }
     }
 
     > .card {

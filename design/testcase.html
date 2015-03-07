@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <title></title>
   <link rel="stylesheet" href="stylesheets/style.css">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
@@ -23,12 +24,40 @@
   </header>
 
   <section>
-    <ul class="cards toilets">
+    <ul id="main-cards" class="cards toilets">
       <li><div class="card">
         <div class="visual"><img src="http://lorempixel.com/400/300/sports/" alt="" class="" ></div>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque beatae aspernatur doloribus reiciendis at, voluptatibus voluptate iste suscipit ipsam, nobis repellat eligendi fugiat minima temporibus libero illo iure saepe, aperiam.</div></li>
-      <li><div class="card">Velit deserunt laudantium eius facere. Incidunt eum obcaecati voluptatibus quaerat, accusamus esse sit similique provident! Possimus in, laudantium quos reprehenderit fugiat magni recusandae dolor sapiente, vitae sunt voluptatem praesentium reiciendis!</div></li>
-      <li><div class="card">Ex recusandae explicabo, nulla excepturi est veritatis labore tenetur, rem incidunt ea repellendus nemo, hic odit sint debitis suscipit, nam eligendi non dolor repudiandae obcaecati dicta in rerum! Molestias, a!</div></li>
+      <li>
+        <div class="card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod placeat, minus, sit earum eum quae, illo maxime aperiam tenetur nostrum, aspernatur laborum velit recusandae quibusdam. Ex, blanditiis. Rerum, earum, maiores.</div>
+      </li>
+      <li>
+        <div class="card">Voluptate quo, sequi doloribus inventore vero alias totam accusantium nam! Ex consectetur dolores dicta esse, atque obcaecati ab commodi magni suscipit sunt praesentium, sit nostrum error inventore ullam. Qui, ut?</div>
+      </li>
+      <li>
+        <div class="card">Enim dicta rerum quibusdam animi laboriosam dolorum alias quidem placeat et veniam nobis autem totam architecto distinctio, dolor provident ducimus mollitia, repudiandae, aperiam. Vel, magnam repellat ea nemo, ratione fuga.</div>
+      </li>
+      <li>
+        <div class="card">Nostrum cumque ducimus, vitae vero est quae minima aspernatur iusto quaerat perferendis? Praesentium repudiandae natus esse at quas sunt, voluptates voluptatem ratione quidem aspernatur neque numquam vero vel? Quibusdam, modi?</div>
+      </li>
+      <li>
+        <div class="card">Voluptatibus eaque aliquam delectus expedita repudiandae neque deleniti quis officiis similique at ex unde eveniet quasi dolor deserunt illum quaerat dolorem quibusdam error maiores, obcaecati! Doloribus expedita deleniti debitis qui.</div>
+      </li>
+      <li>
+        <div class="card">Illo a aliquam minus culpa mollitia consequatur debitis officiis molestiae, accusamus modi aliquid dolorem fugit itaque eveniet nobis natus nostrum alias ducimus! Perferendis itaque odio pariatur, accusantium? Inventore non, sit.</div>
+      </li>
+      <li>
+        <div class="card">Culpa impedit, esse, ratione cupiditate dolorum dicta accusantium. Asperiores sed voluptatibus quasi tempore facere quis aliquid, eveniet ipsam voluptate laudantium porro, autem sit, reprehenderit, magni. Quia ea perferendis ad quos.</div>
+      </li>
+      <li>
+        <div class="card">Maxime fuga, corporis, id accusantium quidem labore, modi, cumque libero soluta illo illum sed. Molestiae quaerat, perferendis tempora expedita maxime officiis ducimus nesciunt vitae ullam doloremque, quam laborum, culpa illum.</div>
+      </li>
+      <li>
+        <div class="card">Impedit quos optio non commodi dolor, accusantium amet, doloribus voluptate delectus eius recusandae sed, repellat, ea aliquam eum sunt. Facere quos illo magni eum voluptas quasi, maxime expedita hic officiis!</div>
+      </li>
+      <li>
+        <div class="card">Ipsa, unde pariatur delectus? Repellendus illum quisquam debitis asperiores non fuga perspiciatis enim pariatur nesciunt delectus reprehenderit at qui officiis libero atque ex, fugit impedit optio dolores harum, voluptatem aspernatur.</div>
+      </li>
       <li><div class="card">
         <p>この東京砂漠を生きるハッカーの皆さんは、こんな覚えありませんか？</p>
 
@@ -65,5 +94,13 @@
     <p>kirinsan.org </p>
   </footer>
 
+
+<script>
+  var container = document.querySelector('#main-cards');
+  var msnry = new Masonry( container, {
+    itemSelector: 'li',
+    transitionDuration: 0.1
+  });
+</script>
 </body>
 </html>

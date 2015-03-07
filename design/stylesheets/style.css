@@ -216,11 +216,22 @@ footer#global-footer {
   clear: both;
   zoom: 1;
 }
+/* line 165, ../sass/style.scss */
+.cards > li:after {
+  content: "";
+  display: block;
+  clear: both;
+  zoom: 1;
+}
 @media (min-width: 480px) and (max-width: 767px) {
   /* line 163, ../sass/style.scss */
   .cards > li {
     width: 50%;
     float: left;
+  }
+  /* line 176, ../sass/style.scss */
+  .cards > li.double, .cards > li.triple, .cards > li.fullsize {
+    width: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -229,6 +240,14 @@ footer#global-footer {
     width: 33.333%;
     float: left;
   }
+  /* line 185, ../sass/style.scss */
+  .cards > li.double {
+    width: 66.666%;
+  }
+  /* line 189, ../sass/style.scss */
+  .cards > li.triple, .cards > li.fullsize {
+    width: 100%;
+  }
 }
 @media (min-width: 992px) {
   /* line 163, ../sass/style.scss */
@@ -236,8 +255,20 @@ footer#global-footer {
     width: 25%;
     float: left;
   }
+  /* line 199, ../sass/style.scss */
+  .cards > li.double {
+    width: 50%;
+  }
+  /* line 203, ../sass/style.scss */
+  .cards > li.triple {
+    width: 75%;
+  }
+  /* line 207, ../sass/style.scss */
+  .cards > li.fullsize {
+    width: 100%;
+  }
 }
-/* line 180, ../sass/style.scss */
+/* line 212, ../sass/style.scss */
 .cards > li > .card {
   background-color: #fff;
   margin: 6px;
@@ -245,46 +276,46 @@ footer#global-footer {
   padding: 12px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
-/* line 190, ../sass/style.scss */
+/* line 222, ../sass/style.scss */
 .cards > li > .card .visual {
   margin: -12px -12px 12px -12px;
   overflow: hidden;
   clear: both;
   display: block;
 }
-/* line 197, ../sass/style.scss */
+/* line 229, ../sass/style.scss */
 .cards > li > .card p, .cards > li > .card blockquote {
   line-height: 1.4em;
   font-size: 95%;
   margin-bottom: 0.7em;
 }
-/* line 203, ../sass/style.scss */
+/* line 235, ../sass/style.scss */
 .cards > li > .card blockquote {
   font-style: italic;
   text-align: center;
 }
 
-/* line 212, ../sass/style.scss */
+/* line 244, ../sass/style.scss */
 .layer1 {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* line 213, ../sass/style.scss */
+/* line 245, ../sass/style.scss */
 .layer2 {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* line 214, ../sass/style.scss */
+/* line 246, ../sass/style.scss */
 .layer3 {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25) !important;
 }
 
-/* line 215, ../sass/style.scss */
+/* line 247, ../sass/style.scss */
 .layer4 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.23) !important;
 }
 
-/* line 216, ../sass/style.scss */
+/* line 248, ../sass/style.scss */
 .layer5 {
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2) !important;
 }
