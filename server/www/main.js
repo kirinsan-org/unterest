@@ -21,17 +21,16 @@ jQuery(function($) {
       $li.children(".card")
         .append('<div class="map" style="background-image:url(https://maps.googleapis.com/maps/api/staticmap?center='+pos+'&zoom=15&size=400x200&markers='+pos+')"></div>');
 
-      $li.on({'click': function() {
 
-        $(this).children(".card").toggleClass("open");
-
-        if (!confirm('ここへ行きますか？')) return;
-
+      $li.find(".map").append($("<button />").text("Help").on({"click":function(){
         socket.emit('user.thankYou', {
           target: data.source,
           userId: userId
         });
+      }));
 
+      $li.on({'click': function() {
+        $(this).children(".card").toggleClass("open");
       }});
     }
   });
