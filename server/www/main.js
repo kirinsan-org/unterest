@@ -22,7 +22,7 @@ jQuery(function($) {
         .append('<div class="map" style="background-image:url(https://maps.googleapis.com/maps/api/staticmap?center='+pos+'&zoom=15&size=400x200&markers='+pos+')"></div>');
 
 
-      $li.find(".map").append($("<button />").addClass("go").text("今から行く").on({"click":function(){
+      $li.find(".map").append($("<button />").addClass("go").html('<span class="glyphicons map"></span>今から行く').on({"click":function(){
 
         if (!confirm('ここへ行きますか？')) return;
 
@@ -34,7 +34,7 @@ jQuery(function($) {
           target: data.source,
           userId: userId
         });
-      }})).append($("<button />").addClass("info").text("詳細を見る").on({"click":function(){
+      }})).append($("<button />").addClass("info").html('<span class="glyphicons eye-open"></span>詳細を見る').on({"click":function(){
         /**/
       }}));
 

@@ -93,7 +93,7 @@ button {
   min-width:50px;
   position: relative;
   top:0;
-  transition:top 0.1s ease-in-out 0s;
+  transition:top 0.1s ease-in-out 0s,bottom 0.1s ease-in-out 0s;
   font-size: 16px;
   font-weight:bold;
   box-shadow: $dropShadowLv1;
@@ -345,12 +345,16 @@ button {
           bottom: 0;
           position: absolute;
           top: auto;
+          
+          &:active{
+            bottom: -5px;
+          }
 
           &.go {
             left:0;
           }
           &.more {
-            right:0;  
+            right:0;
           }
         }
       }
