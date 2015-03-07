@@ -23,6 +23,13 @@ jQuery(function($) {
 
 
       $li.find(".map").append($("<button />").addClass("go").text("今から行く").on({"click":function(){
+
+        if (!confirm('ここへ行きますか？')) return;
+
+        if (!confirm('本当に行きますか？')) return;
+
+        window.open("http://maps.google.co.jp/maps?f=d&hl=ja&geocode=&ie=UTF8&ll="+pos);
+
         socket.emit('user.thankYou', {
           target: data.source,
           userId: userId
