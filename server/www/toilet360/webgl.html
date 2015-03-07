@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Document</title>
+  <style>
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+  }
+  </style>
+</head>
+
+<body>
+  <script src="three.min.js"></script>
+  <script src="DeviceOrientationControls.js"></script>
+  <script>
+  var scene, camera, renderer;
+  var geometry, material, mesh;
+  var controls;
+  init();
+  animate();
+
+  function init() {
+    try {
+      scene = new THREE.Scene();
+
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
+      // camera.position.z = 1000;
+
+
+      geometry = new THREE.SphereGeometry(200, 200, 200);
+      material = new THREE.MeshBasicMaterial({
+        map: THREE.ImageUtils.loadTexture('toilet.jpg'),
+        side: THREE.BackSide
+      });
+
+      mesh = new THREE.Mesh(geometry, material);
+      scene.add(mesh);
+
+      renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      document.body.appendChild(renderer.domElement);
+
+      controls = new THREE.DeviceOrientationControls(camera, true);
+      controls.connect();
+    } catch (e) {
+      location.href = 'fallback.html';
+    }
+  }
+
+  function animate() {
+
+    requestAnimationFrame(animate);
+    controls.update();
+
+    renderer.render(scene, camera);
+
+  }
+  </script>
+</body>
+
+</html>
