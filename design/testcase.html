@@ -6,7 +6,10 @@
   <meta charset="UTF-8">
   <title></title>
   <link rel="stylesheet" href="stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="components/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
+
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
@@ -16,8 +19,11 @@
   </header>
 
   <header id="mainvisual" class="keyVisual">
-    <div class="visual">
-      <img src="http://lorempixel.com/400/300/sports/" alt="" >
+    <div class="indicator">
+      1000 <img src="images/tmark.svg" alt="">
+    </div>
+    <div class="visual streetview">
+      <img src="http://maps.googleapis.com/maps/api/streetview?size=960x480&location=35.666087999999995,139.73195339999998&heading=235&sensor=false">
     </div>
 
     <a href="#" class="buttonCommon">+</a>
@@ -25,18 +31,56 @@
 
   <section>
     <ul id="main-cards" class="cards toilets">
-      <li><div class="card">
-        <div class="visual"><img src="http://lorempixel.com/400/300/sports/" alt="" class="" ></div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque beatae aspernatur doloribus reiciendis at, voluptatibus voluptate iste suscipit ipsam, nobis repellat eligendi fugiat minima temporibus libero illo iure saepe, aperiam.</div></li>
       <li>
-        <div class="card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod placeat, minus, sit earum eum quae, illo maxime aperiam tenetur nostrum, aspernatur laborum velit recusandae quibusdam. Ex, blanditiis. Rerum, earum, maiores.</div>
-      </li>
-      <li>
-        <div class="card">Voluptate quo, sequi doloribus inventore vero alias totam accusantium nam! Ex consectetur dolores dicta esse, atque obcaecati ab commodi magni suscipit sunt praesentium, sit nostrum error inventore ullam. Qui, ut?</div>
-      </li>
-      <li>
-        <div class="card">Enim dicta rerum quibusdam animi laboriosam dolorum alias quidem placeat et veniam nobis autem totam architecto distinctio, dolor provident ducimus mollitia, repudiandae, aperiam. Vel, magnam repellat ea nemo, ratione fuga.</div>
-      </li>
+        <div class="card">
+          <div class="visual"><img src="http://lorempixel.com/400/300/sports/" alt="" class="" ></div>
+          <h3>トイレの名称 <small>オーナー名</small></h3>
+          <div class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus accusantium reiciendis sequi modi nemo sit dolore adipisci quae provident quo sint, alias reprehenderit! Officiis deleniti quasi, culpa voluptatum numquam cum.
+          </div>
+          <div class="rate">
+            <img src="images/star_on.png" alt=""><!--
+             --><img src="images/star_on.png" alt=""><!--
+             --><img src="images/star_off.png" alt=""><!--
+             --><img src="images/star_off.png" alt=""><!--
+             --><img src="images/star_off.png" alt="">
+          </div>
+        </div></li>
+
+        <li>
+          <div class="card">
+            <div class="visual"><img src="images/testimage/1.jpg" alt="" class="" ></div>
+            <h3>トイレの名称 <small>オーナー名</small></h3>
+            <div class="description">
+              Voluptate quo, sequi doloribus inventore vero alias totam accusantium nam! Ex consectetur dolores dicta esse, atque obcaecati ab commodi magni suscipit sunt praesentium, sit nostrum error inventore ullam. Qui, ut?
+            </div>
+            <div class="rate">
+              <img src="images/star_on.png" alt=""><!--
+               --><img src="images/star_on.png" alt=""><!--
+               --><img src="images/star_off.png" alt=""><!--
+               --><img src="images/star_off.png" alt=""><!--
+               --><img src="images/star_off.png" alt="">
+            </div>
+          </div></li>
+
+          <li>
+            <div class="card">
+              <div class="visual"><img src="images/testimage/2.jpg" alt="" class="" ></div>
+              <h3>トイレの名称 <small>オーナー名</small></h3>
+              <div class="description">
+                Enim dicta rerum quibusdam animi laboriosam dolorum alias quidem placeat et veniam nobis autem totam architecto distinctio, dolor provident ducimus mollitia, repudiandae, aperiam. Vel, magnam repellat ea nemo, ratione fuga.
+              </div>
+              <div class="rate">
+                <img src="images/star_on.png" alt=""><!--
+                 --><img src="images/star_on.png" alt=""><!--
+                 --><img src="images/star_off.png" alt=""><!--
+                 --><img src="images/star_off.png" alt=""><!--
+                 --><img src="images/star_off.png" alt="">
+              </div>
+            </div></li>
+
+
+
       <li>
         <div class="card">Nostrum cumque ducimus, vitae vero est quae minima aspernatur iusto quaerat perferendis? Praesentium repudiandae natus esse at quas sunt, voluptates voluptatem ratione quidem aspernatur neque numquam vero vel? Quibusdam, modi?</div>
       </li>
@@ -105,11 +149,28 @@
 
 
 <script>
-  var container = document.querySelector('#main-cards');
-  var msnry = new Masonry( container, {
+var $container = $('#main-cards'); // 追加した行
+
+imagesLoaded($container.get(0),function(){ // 追加した行
+  $container.masonry({
     itemSelector: 'li',
-    transitionDuration: 0.1
+    transitionDuration: 0.3
   });
+
+  setTimeout(function(){
+    $(window).trigger("resize");
+  },10000)
+});
+
+$(window).on({"scroll":function(){
+
+  $(".visual.streetview img").css("marginTop",(function(){
+
+    return ($(this).scrollTop() / $(window).height() * 30) - 15 + "%"
+
+  })());
+
+}});
 </script>
 
 

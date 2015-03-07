@@ -7,6 +7,7 @@
   <title></title>
   <link rel="stylesheet" href="stylesheets/style.css">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
+  <script src="scripts/components/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -45,11 +46,20 @@
 
 
 <script>
-  var container = document.querySelector('#main-cards');
-  var msnry = new Masonry( container, {
-    itemSelector: 'li',
-    transitionDuration: 0.1
-  });
+
+// var $container = $('#main-cards'); // 追加した行
+
+// $container.imagesLoaded(function(){ // 追加した行
+//   $container.masonry({
+//     itemSelector: 'li',
+//     transitionDuration: 0.3
+//   });
+
+//   setTimeout(function(){
+//     $(window).trigger("resize");
+//   },10000)
+// });
+
 
 
 
