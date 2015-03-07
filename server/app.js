@@ -11,6 +11,17 @@ app.use(express.static(__dirname + '/www'));
 io.on('connection', function(socket) {
 
   /**
+   * ユーザーIDとsocket.idの対応付けを行う
+   */
+  // socket.emit('getUserId', function(userId) {
+  //   db.user.update({
+  //     id: userId
+  //   }, {
+  //     socketId: socket.id
+  //   });
+  // })
+
+  /**
    * 助けを求める
    * data.geolocation : ユーザーの位置
    * data.userId : ユーザーID
@@ -59,16 +70,13 @@ io.on('connection', function(socket) {
    * data.userId : 利用者のユーザーID
    */
   socket.on('user.cancel', function(data) {
-  	
+
     // TODO 絞込
-    socket.broadcast.emit('user.cancel', {
+    socket.broadcast.to(data.target).emit('user.cancel', {
       source: socket.id,
       data: data
     });
   });
-
 });
 
-// var bodyParser = require('body-parser')
-// app.use(bodyParser.json());
 server.listen(80);
