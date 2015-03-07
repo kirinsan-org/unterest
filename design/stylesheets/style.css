@@ -1,0 +1,321 @@
+@charset "UTF-8";
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/*Width*/
+/* colors */
+/* Elements sizes */
+/* drop shadow level*/
+/* line 42, ../sass/style.scss */
+html {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* line 47, ../sass/style.scss */
+body {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  position: relative;
+}
+
+/* line 53, ../sass/style.scss */
+header#global-header,
+footer#global-footer {
+  width: 100%;
+  position: absolute;
+  box-shadow: 0 0px 0px black;
+}
+
+/* line 60, ../sass/style.scss */
+header#global-header {
+  height: 48px;
+  line-height: 48px;
+  background-color: #F8E607;
+  text-align: center;
+  top: 0;
+}
+
+/* line 69, ../sass/style.scss */
+footer#global-footer {
+  height: 48px;
+  line-height: 48px;
+  background-color: #F8E607;
+  text-align: center;
+  bottom: 0;
+}
+
+/*メインビジュアル要素*/
+/* line 79, ../sass/style.scss */
+#mainvisual, .keyVisual {
+  background-color: #ccc;
+  min-height: 100px;
+  position: relative;
+}
+@media (max-width: 767px) {
+  /* line 79, ../sass/style.scss */
+  #mainvisual, .keyVisual {
+    height: 160px;
+  }
+}
+@media (min-width: 370px) {
+  /* line 79, ../sass/style.scss */
+  #mainvisual, .keyVisual {
+    height: 185px;
+  }
+}
+@media (min-width: 410px) {
+  /* line 79, ../sass/style.scss */
+  #mainvisual, .keyVisual {
+    height: 205px;
+  }
+}
+/* line 98, ../sass/style.scss */
+#mainvisual > div.visual, .keyVisual > div.visual {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+/* line 102, ../sass/style.scss */
+#mainvisual > div.visual > img, .keyVisual > div.visual > img {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  /* line 112, ../sass/style.scss */
+  body {
+    display: block;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 113, ../sass/style.scss */
+  body {
+    display: block;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 116, ../sass/style.scss */
+  body {
+    display: block;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* line 119, ../sass/style.scss */
+  body {
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  /* line 122, ../sass/style.scss */
+  body {
+    display: block;
+  }
+}
+@media (max-width: 767px) {
+  /* line 125, ../sass/style.scss */
+  body {
+    display: block;
+  }
+}
+/* line 128, ../sass/style.scss */
+.buttonCommon {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #F8E607;
+  position: relative;
+  z-index: 1000;
+  height: 64px;
+  width: 64px;
+  border-radius: 32px;
+  line-height: 64px;
+}
+/* line 145, ../sass/style.scss */
+#mainvisual .buttonCommon, .keyVisual .buttonCommon {
+  position: absolute;
+  bottom: -32px;
+  right: 16px;
+}
+
+/* line 153, ../sass/style.scss */
+.cards {
+  display: block;
+}
+/* line 156, ../sass/style.scss */
+.cards:after {
+  content: "";
+  display: block;
+  clear: both;
+  zoom: 1;
+}
+/* line 165, ../sass/style.scss */
+.cards > li:after {
+  content: "";
+  display: block;
+  clear: both;
+  zoom: 1;
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  /* line 163, ../sass/style.scss */
+  .cards > li {
+    width: 50%;
+    float: left;
+  }
+  /* line 176, ../sass/style.scss */
+  .cards > li.double, .cards > li.triple, .cards > li.fullsize {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 163, ../sass/style.scss */
+  .cards > li {
+    width: 33.333%;
+    float: left;
+  }
+  /* line 185, ../sass/style.scss */
+  .cards > li.double {
+    width: 66.666%;
+  }
+  /* line 189, ../sass/style.scss */
+  .cards > li.triple, .cards > li.fullsize {
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  /* line 163, ../sass/style.scss */
+  .cards > li {
+    width: 25%;
+    float: left;
+  }
+  /* line 199, ../sass/style.scss */
+  .cards > li.double {
+    width: 50%;
+  }
+  /* line 203, ../sass/style.scss */
+  .cards > li.triple {
+    width: 75%;
+  }
+  /* line 207, ../sass/style.scss */
+  .cards > li.fullsize {
+    width: 100%;
+  }
+}
+/* line 212, ../sass/style.scss */
+.cards > li > .card {
+  background-color: #fff;
+  margin: 6px;
+  background-color: #FFF;
+  padding: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+/* line 222, ../sass/style.scss */
+.cards > li > .card .visual {
+  margin: -12px -12px 12px -12px;
+  overflow: hidden;
+  clear: both;
+  display: block;
+}
+/* line 229, ../sass/style.scss */
+.cards > li > .card p, .cards > li > .card blockquote {
+  line-height: 1.4em;
+  font-size: 95%;
+  margin-bottom: 0.7em;
+}
+/* line 235, ../sass/style.scss */
+.cards > li > .card blockquote {
+  font-style: italic;
+  text-align: center;
+}
+
+/* line 244, ../sass/style.scss */
+.layer1 {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* line 245, ../sass/style.scss */
+.layer2 {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* line 246, ../sass/style.scss */
+.layer3 {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* line 247, ../sass/style.scss */
+.layer4 {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.23) !important;
+}
+
+/* line 248, ../sass/style.scss */
+.layer5 {
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2) !important;
+}
