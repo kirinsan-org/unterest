@@ -20,7 +20,7 @@
     <h1><img src="images/brand.png" alt="Unterest" height="48"></h1>
   </header>
 
-  <header id="mainvisual" class="keyVisual">
+  <header id="mainvisual" class="keyVisual fullHeight">
     <div class="indicator" id="toilet-count">
       <span class="counter"></span> <img src="images/tmark.svg" alt="" class="mark">
     </div>
@@ -28,7 +28,10 @@
       <img src="http://maps.googleapis.com/maps/api/streetview?size=960x480&location=35.666087999999995,139.73195339999998&heading=235&sensor=false">
     </div>
 
-    <a href="#" class="buttonCommon">+</a>
+    <a href="#" class="buttonCommon lighten mainvisualCenter">
+      <div class="first"><span class="glyphicons fire">トイレ貸してください！</span></div>
+      <div class="second"><span class="glyphicons undo"></span></div>
+    </a>
   </header>
 
 
@@ -80,19 +83,32 @@
     $(function(){
 
       var $entrance = $("#entrance");
-
       $entrance.find("button").on({"click":function(){
         $entrance.addClass("progress");
         geolocation.get(function(){
           $entrance.fadeOut();
-        })
+        });
       }});
-    })
+
+      $(window).on({"resize":function(){
+        var fullHeight = $(window).height() - $("#global-header").height() - $("#global-footer").height();
+        console.log(fullHeight);
+        $("#mainvisual.fullHeight").height(fullHeight)
+      }}).trigger("resize");
+
+      $(".buttonCommon").on({"click":function(){
+        $("#mainvisual.fullHeight").height("").removeClass("fullHeight")
+        $(this).removeClass("mainvisualCenter");
+      }});
+
+    });
+
+
   </script>
 
 
   <section>
-    <ul id="main-cards" class="cards searchresult">
+    <ul id="main-cards" class="cards searchresult" style="display:none;">
       <li class="fullsize">
         <div class="card">
           <span class="glyphicons more"></span> 999m

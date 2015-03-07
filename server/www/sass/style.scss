@@ -118,6 +118,8 @@ button {
   min-height:100px;
   position: relative;
 
+  transition: height 0.5s ease-in-out 0s;
+
   $ratio :0.5;
   //Smartphones
   @media (max-width: $phoneMaxWidth) {
@@ -173,7 +175,7 @@ button {
 @media (max-width: $phoneMaxWidth) {body{display:block;}}
 
 
-.buttonCommon {
+.buttonCommon{
 
   $height : 64px;
 
@@ -182,6 +184,12 @@ button {
   text-decoration:none;
   color:#fff;
   background-color:$keyColor;
+  transition: all 0.5s ease-out 0.3s;
+  box-shadow:$dropShadowLv4;
+
+  &.lighten{
+    background-color: lighten( $keyColor, 15% );
+  }
   position: relative;
   z-index:1000;
 
@@ -194,9 +202,32 @@ button {
     position: absolute;
     bottom:$height * -0.5;
     right:$height * 0.25;
+    .first{
+      display:none;
+    }
+    .second{
+      display:block;
+    }
+    &.mainvisualCenter{
+      right: 50%;
+      bottom: 20%;
+      border-radius: 0;
+      width: 300px;
+      margin: 0 -150px;
+      .first{
+        display:block;
+      }
+      .second{
+        display:none;
+      }
+    }
   }
 
+
+
 }
+
+
 
 .cards {
   display:block;
