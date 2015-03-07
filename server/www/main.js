@@ -34,8 +34,9 @@ jQuery(function($) {
           target: data.source,
           userId: userId
         });
-      }})).append($("<button />").addClass("info").html('<span class="glyphicons eye-open"></span>詳細を見る').on({"click":function(){
+      }})).append($("<button />").addClass("info").html('<span class="glyphicons eye_open"></span>詳細を見る').on({"click":function(){
         /**/
+        window.open("http://unterest.cloudapp.net/toilet360/");
       }}));
 
       $li.on({'click': function() {
