@@ -30,10 +30,14 @@ jQuery(function($) {
 
         var currentPos = geolocation.result.coords.latitude + "," + geolocation.result.coords.longitude;
 
-        //window.open("https://www.google.co.jp/maps/dir/"+currentPos+"/"+currentPos+"/@"+pos+",16z");
 
-        //window.open("https://www.google.co.jp/maps/dir///@"+pos+",19z?hl=ja");
-        window.location = "comgooglemaps://?q="+pos+"&center="+pos;
+
+        if(window.navigator.userAgent.toLowerCase().match("ios")){
+          window.location = "comgooglemaps://?q="+pos+"&center="+pos;
+        }else{
+          window.open("https://www.google.co.jp/maps/dir/"+currentPos+"/"+currentPos+"/@"+pos+",16z");  
+        }
+
 
 
         socket.emit('user.thankYou', {
