@@ -51,8 +51,8 @@
   <script>
   angular.module('Owner', ['ngMaterial']).controller('Main', function($scope, $http, $timeout, $mdToast) {
 
-    // var userId = prompt('1～6までのどれか')
-    var userId = '1'
+    var userId = prompt('2～8までのどれか')
+    // var userId = '1'
     var socket = window.io ? io.connect() : {
       on: angular.noop,
       emit: angular.noop
