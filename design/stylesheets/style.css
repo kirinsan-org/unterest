@@ -98,7 +98,7 @@ footer#global-footer {
 header#global-header {
   height: 48px;
   line-height: 48px;
-  background-color: #F8E607;
+  background-color: #E24D00;
   text-align: center;
   top: 0;
 }
@@ -107,90 +107,94 @@ header#global-header {
 footer#global-footer {
   height: 48px;
   line-height: 48px;
-  background-color: #F8E607;
+  background-color: #E24D00;
   text-align: center;
   bottom: 0;
 }
+/* line 75, ../sass/style.scss */
+footer#global-footer > img {
+  margin: 8px auto;
+}
 
 /*メインビジュアル要素*/
-/* line 79, ../sass/style.scss */
+/* line 80, ../sass/style.scss */
 #mainvisual, .keyVisual {
   background-color: #ccc;
   min-height: 100px;
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 79, ../sass/style.scss */
+  /* line 80, ../sass/style.scss */
   #mainvisual, .keyVisual {
     height: 160px;
   }
 }
 @media (min-width: 370px) {
-  /* line 79, ../sass/style.scss */
+  /* line 80, ../sass/style.scss */
   #mainvisual, .keyVisual {
     height: 185px;
   }
 }
 @media (min-width: 410px) {
-  /* line 79, ../sass/style.scss */
+  /* line 80, ../sass/style.scss */
   #mainvisual, .keyVisual {
     height: 205px;
   }
 }
-/* line 98, ../sass/style.scss */
+/* line 99, ../sass/style.scss */
 #mainvisual > div.visual, .keyVisual > div.visual {
   overflow: hidden;
   width: 100%;
   height: 100%;
 }
-/* line 102, ../sass/style.scss */
+/* line 103, ../sass/style.scss */
 #mainvisual > div.visual > img, .keyVisual > div.visual > img {
   width: 100%;
 }
 
 @media (min-width: 992px) {
-  /* line 112, ../sass/style.scss */
-  body {
-    display: block;
-  }
-}
-@media (min-width: 1200px) {
   /* line 113, ../sass/style.scss */
   body {
     display: block;
   }
 }
+@media (min-width: 1200px) {
+  /* line 114, ../sass/style.scss */
+  body {
+    display: block;
+  }
+}
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 116, ../sass/style.scss */
+  /* line 117, ../sass/style.scss */
   body {
     display: block;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 119, ../sass/style.scss */
+  /* line 120, ../sass/style.scss */
   body {
     display: block;
   }
 }
 @media (min-width: 768px) {
-  /* line 122, ../sass/style.scss */
+  /* line 123, ../sass/style.scss */
   body {
     display: block;
   }
 }
 @media (max-width: 767px) {
-  /* line 125, ../sass/style.scss */
+  /* line 126, ../sass/style.scss */
   body {
     display: block;
   }
 }
-/* line 128, ../sass/style.scss */
+/* line 129, ../sass/style.scss */
 .buttonCommon {
   display: block;
   text-align: center;
   text-decoration: none;
   color: #fff;
-  background-color: #F8E607;
+  background-color: #E24D00;
   position: relative;
   z-index: 1000;
   height: 64px;
@@ -198,43 +202,49 @@ footer#global-footer {
   border-radius: 32px;
   line-height: 64px;
 }
-/* line 145, ../sass/style.scss */
+/* line 146, ../sass/style.scss */
 #mainvisual .buttonCommon, .keyVisual .buttonCommon {
   position: absolute;
   bottom: -32px;
   right: 16px;
 }
 
-/* line 153, ../sass/style.scss */
+/* line 154, ../sass/style.scss */
 .cards {
   display: block;
 }
-/* line 156, ../sass/style.scss */
+/* line 157, ../sass/style.scss */
 .cards:after {
   content: "";
   display: block;
   clear: both;
   zoom: 1;
 }
-/* line 163, ../sass/style.scss */
+/* line 164, ../sass/style.scss */
 .cards button {
   -webkit-tap-highlight-color: transparent;
   height: 48px;
   line-height: 48px;
-  background-color: #ccc;
+  background-color: #E24D00;
+  color: #FFF;
   border: none;
-  padding: 0 8px;
+  padding: 0 16px;
   text-align: center;
   min-width: 50px;
   position: relative;
   top: 0;
   transition: top 0.1s ease-in-out 0s;
+  font-size: 16px;
 }
-/* line 175, ../sass/style.scss */
+/* line 179, ../sass/style.scss */
 .cards button:active {
   top: 3px;
 }
-/* line 182, ../sass/style.scss */
+/* line 184, ../sass/style.scss */
+.cards > li {
+  width: 100%;
+}
+/* line 186, ../sass/style.scss */
 .cards > li:after {
   content: "";
   display: block;
@@ -242,51 +252,51 @@ footer#global-footer {
   zoom: 1;
 }
 @media (min-width: 480px) and (max-width: 767px) {
-  /* line 180, ../sass/style.scss */
+  /* line 184, ../sass/style.scss */
   .cards > li {
     width: 50%;
     float: left;
   }
-  /* line 193, ../sass/style.scss */
+  /* line 199, ../sass/style.scss */
   .cards > li.double, .cards > li.triple, .cards > li.fullsize {
     width: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 180, ../sass/style.scss */
+  /* line 184, ../sass/style.scss */
   .cards > li {
     width: 33.333%;
     float: left;
   }
-  /* line 202, ../sass/style.scss */
+  /* line 208, ../sass/style.scss */
   .cards > li.double {
     width: 66.666%;
   }
-  /* line 206, ../sass/style.scss */
+  /* line 212, ../sass/style.scss */
   .cards > li.triple, .cards > li.fullsize {
     width: 100%;
   }
 }
 @media (min-width: 992px) {
-  /* line 180, ../sass/style.scss */
+  /* line 184, ../sass/style.scss */
   .cards > li {
     width: 25%;
     float: left;
   }
-  /* line 216, ../sass/style.scss */
+  /* line 222, ../sass/style.scss */
   .cards > li.double {
     width: 50%;
   }
-  /* line 220, ../sass/style.scss */
+  /* line 226, ../sass/style.scss */
   .cards > li.triple {
     width: 75%;
   }
-  /* line 224, ../sass/style.scss */
+  /* line 230, ../sass/style.scss */
   .cards > li.fullsize {
     width: 100%;
   }
 }
-/* line 229, ../sass/style.scss */
+/* line 235, ../sass/style.scss */
 .cards > li > .card {
   background-color: #fff;
   margin: 6px;
@@ -294,46 +304,46 @@ footer#global-footer {
   padding: 12px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
-/* line 239, ../sass/style.scss */
+/* line 245, ../sass/style.scss */
 .cards > li > .card .visual {
   margin: -12px -12px 12px -12px;
   overflow: hidden;
   clear: both;
   display: block;
 }
-/* line 246, ../sass/style.scss */
+/* line 252, ../sass/style.scss */
 .cards > li > .card p, .cards > li > .card blockquote {
   line-height: 1.4em;
   font-size: 95%;
   margin-bottom: 0.7em;
 }
-/* line 252, ../sass/style.scss */
+/* line 258, ../sass/style.scss */
 .cards > li > .card blockquote {
   font-style: italic;
   text-align: center;
 }
 
-/* line 261, ../sass/style.scss */
+/* line 267, ../sass/style.scss */
 .layer1 {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* line 262, ../sass/style.scss */
+/* line 268, ../sass/style.scss */
 .layer2 {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* line 263, ../sass/style.scss */
+/* line 269, ../sass/style.scss */
 .layer3 {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25) !important;
 }
 
-/* line 264, ../sass/style.scss */
+/* line 270, ../sass/style.scss */
 .layer4 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.23) !important;
 }
 
-/* line 265, ../sass/style.scss */
+/* line 271, ../sass/style.scss */
 .layer5 {
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2) !important;
 }

@@ -14,7 +14,7 @@
 <body>
 
   <header id="global-header">
-    <h1>brand</h1>
+    <h1><img src="images/brand.png" alt="Unterest" height="48"></h1>
   </header>
 
   <header id="mainvisual" class="keyVisual">
@@ -40,7 +40,7 @@
 
 
   <footer id="global-footer">
-    <p>kirinsan.org </p>
+    <img src="images/kirinsanorg.svg" height="32" alt="">
   </footer>
 
 
@@ -52,30 +52,39 @@
   });
 
 
- var geolocation = new (function(){
 
-   var status = "initialize";
-   this.result = false;
-
-  var done = function(pos){
-     $("#result").html(JSON.stringify(pos));
-
-     status = "success";
-
-     console.log("done:",pos,status)
-
-     result = pos;
-   }
-
-  var failed = function(a){
-    console.log("failed:",a)
-   }
+var Geokit = function(callback){
+  this.status = undefined;
+  this.result = false;
+  this.get();
+  return false;
+}
 
 
-   navigator.geolocation.getCurrentPosition(done, failed);
+Geokit.prototype.done = function(pos){
+   this.status = "success";
+   console.log(this.status , this);
+   console.log("done:",pos,status);
+   this.result = pos;
+}
 
-  return this.result 
- })();
+Geokit.prototype.fail = function(a){
+   this.status = false;
+}
+
+
+Geokit.prototype.get = function(){
+  navigator.geolocation.getCurrentPosition(
+    function(pos){
+      geolocation.done(pos);
+    },
+    function(pos){
+      geolocation.fail(pos);
+    });
+}
+
+
+var geolocation = new Geokit();
 
 $(function(){
 

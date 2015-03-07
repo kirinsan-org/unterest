@@ -21,7 +21,7 @@ $pcDefaultWidth : 1199px;
 $pcHighdefWidth : 1200px;
 
 /* colors */
-$keyColor : #F8E607 ;
+$keyColor : #E24D00 ;
 
 
 /* Elements sizes */
@@ -72,6 +72,7 @@ footer#global-footer {
   background-color: $keyColor;
   text-align:center;
   bottom:0;
+  > img {margin:8px auto;}
 }
 
 /*メインビジュアル要素*/
@@ -164,14 +165,17 @@ footer#global-footer {
     -webkit-tap-highlight-color:rgba(0,0,0,0);
     height:48px;
     line-height:48px;
-    background-color: #ccc;
+    background-color: $keyColor;
+    color:#FFF;
     border:none;
-    padding:0 8px;
+    padding:0 16px;
     text-align:center;
     min-width:50px;
     position: relative;
     top:0;
     transition:top 0.1s ease-in-out 0s;
+    font-size: 16px;
+
     &:active {
       top:3px;
     }
@@ -185,6 +189,8 @@ footer#global-footer {
       clear:both;
       zoom:1;
     }
+
+    width:100%;
 
     @media  (min-width: $phoneLandscapeMinWidth) and (max-width: $phoneMaxWidth)  {
       width:50%;
