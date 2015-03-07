@@ -110,15 +110,21 @@
         geolocation.get(function(){
           $entrance.fadeOut();
 
+          if(!!window.location.host.match("localhost")){
+            var url = "/api/toilet/@35.72518644882094,139.7632000846558";
+          }else{
+            var url = "/api/toilet/@"+geolocation.result.coords.latitude+","+geolocation.result.coords.longitude;
+          }
+
           $.ajax({
-            url: "/api/toilet/@35.72518644882094,139.7632000846558",
+            url: url,
             dataType: "JSON",
             cache: false,
             success: function(data, textStatus){
               setToiletCount(data.length);
             },
             error: function(xhr, textStatus, errorThrown){
-              // エラー処理
+
             }
           });
 
@@ -132,22 +138,49 @@
       }}).trigger("resize");
 
       $(".buttonCommon").on({"click":function(){
-        $("#mainvisual.fullHeight").height("").removeClass("fullHeight")
-        $(this).removeClass("mainvisualCenter");
 
-        $.ajax({
-          url: "/api/toilet/@35.72518644882094,139.7632000846558",
-          dataType: "JSON",
-          cache: false,
-          success: function(data, textStatus){
-            // 成功したとき
-            // data にサーバーから返された html が入る
-            console.log(data);
-          },
-          error: function(xhr, textStatus, errorThrown){
-            // エラー処理
+        if($("#mainvisual.fullHeight").length != 0){
+
+
+          $("#mainvisual.fullHeight").height("").removeClass("fullHeight")
+          $(this).removeClass("mainvisualCenter");
+
+          if(!!window.location.host.match("localhost")){
+            var url = "/api/toilet/@35.72518644882094,139.7632000846558";
+          }else{
+            var url = "/api/toilet/@"+geolocation.result.coords.latitude+","+geolocation.result.coords.longitude;
           }
-        });
+
+
+          $.ajax({
+            url: url,
+            dataType: "JSON",
+            cache: false,
+            success: function(data, textStatus){
+              console.log("done:",data)
+              setTimeout(function(){
+                $.each(data,function(i){
+
+                  var $li = $("<li />").addClass("fullsize").html('<div class="card"><span class="glyphicons more"></span>'+ this.distance +' m</div>').css("opacity",0);
+                  $("#main-cards").append($li);
+                  setTimeout(function(){
+                    $li.animate({"opacity":1});
+                  },i*50);
+
+                })
+              },300)
+            },
+            error: function(xhr, textStatus, errorThrown){
+              console.log("isError")
+            }
+          });
+        }else{
+          $("#mainvisual").addClass("fullHeight");
+          $(this).addClass("mainvisualCenter");
+          $(window).trigger("resize");
+          $("#main-cards").children("li").fadeOut(function(){$(this).remove()});
+        }
+
 
       }});
 
@@ -158,35 +191,7 @@
 
 
   <section>
-    <ul id="main-cards" class="cards searchresult" style="display:none;">
-      <li class="fullsize">
-        <div class="card">
-          <span class="glyphicons more"></span> 999m
-        </div>
-      </li>
-      <li class="fullsize">
-        <div class="card">
-          <span class="glyphicons more"></span> 999m
-        </div>
-      </li>
-      <li class="fullsize">
-        <div class="card">
-          <span class="glyphicons more"></span> 999m
-        </div>
-      </li>
-      <li class="fullsize">
-        <div class="card">
-          <span class="glyphicons more"></span> 999m
-        </div>
-      </li>
-      <li class="fullsize">
-        <div class="card">
-          <span class="glyphicons more"></span> 999m
-        </div>
-      </li>
-
-
-    </ul>
+    <ul id="main-cards" class="cards searchresult"></ul>
   </section>
 
   <script>
