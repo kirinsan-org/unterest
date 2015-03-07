@@ -15,14 +15,18 @@ jQuery(function($) {
     setStatus($li, data.result ? 'allow' : 'deny');
 
     // ここへ行く
-    $li.one('click', function() {
-      if (!confirm('ここへ行きますか？')) return;
+    if (data.result) {
+      $li.one('click', function() {
+        if (!confirm('ここへ行きますか？')) return;
 
-      socket.emit('user.thankYou', {
-        target: data.source,
-        userId: userId
+        socket.emit('user.thankYou', {
+          target: data.source,
+          userId: userId
+        });
+
+        $('#main-cards li').off('click');
       });
-    })
+    }
   });
 
   function setToiletCount(arg) {
