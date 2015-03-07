@@ -5,6 +5,13 @@
 <head>
   <title>Angular360</title>
   <link rel="stylesheet" type="text/css" href="angular360.css">
+  <script>
+  // 対応端末の場合はWebGL版に行く
+  if (/Nexus 5/.test(navigator.userAgent)) {
+    location.href = 'webgl.html';
+  }
+  </script>
+
 </head>
 
 <body>
@@ -13,7 +20,7 @@
   <script src="angular.min.js"></script>
   <script src="angular360.js"></script>
   <script type="text/javascript">
-    angular.module('myApp', ['Angular360']);
+  angular.module('myApp', ['Angular360']);
   </script>
 </body>
 
