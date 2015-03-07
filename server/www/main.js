@@ -27,7 +27,7 @@ jQuery(function($) {
           target: data.source,
           userId: userId
         });
-      }));
+      }}));
 
       $li.on({'click': function() {
         $(this).children(".card").toggleClass("open");
