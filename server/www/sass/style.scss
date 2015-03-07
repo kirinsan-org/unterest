@@ -76,6 +76,41 @@ footer#global-footer {
   > img {margin:8px auto;}
 }
 
+
+button {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  height:48px;
+  line-height:48px;
+  background-color: $keyColor;
+  &.lighten {
+    background-color: lighten( $keyColor, 15% );
+  }
+  color:#FFF;
+  border:none;
+  padding:0 16px;
+  text-align:center;
+  min-width:50px;
+  position: relative;
+  top:0;
+  transition:top 0.1s ease-in-out 0s;
+  font-size: 16px;
+  font-weight:bold;
+  box-shadow: $dropShadowLv1;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    top:3px;
+  }
+
+  .glyphicons {
+    top: 2px;
+  }
+}
+
+
 /*メインビジュアル要素*/
 
 #mainvisual , .keyVisual {
@@ -173,29 +208,7 @@ footer#global-footer {
     zoom:1;
   }
 
-  button {
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
-    height:48px;
-    line-height:48px;
-    background-color: $keyColor;
-    color:#FFF;
-    border:none;
-    padding:0 16px;
-    text-align:center;
-    min-width:50px;
-    position: relative;
-    top:0;
-    transition:top 0.1s ease-in-out 0s;
-    font-size: 16px;
 
-    &:focus {
-      outline: none;
-    }
-
-    &:active {
-      top:3px;
-    }
-  }
 
   > li {
 
@@ -371,4 +384,53 @@ h3 {
   img {
     width:16px;
   }
+}
+
+
+#entrance {
+  position: fixed;
+  top:0;left:0;
+  background-color: $keyColor;
+  background-image: url(../images/brand_flash.png);
+  background-position: center;
+  background-size: 320px 320px;
+  background-repeat: no-repeat;
+  background-size: 320px 320px;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  text-align:center;
+
+  .lowerComponents {
+    position: absolute;
+    bottom:0;left:0;
+    width:100%;
+    height:96px;line-height:96px;
+
+    button {
+      position: relative;
+      top:0;
+      transition: top 0.3s ease-in-out 0s;
+    }
+
+    img.progress {
+      position: absolute;
+      margin:-8px;
+      top:120px;left: 50%;
+      transition: top 0.3s ease-in-out 0s;
+    }
+  }
+
+  &.progress {
+    .lowerComponents {
+      button {
+        top:120px
+      }
+
+      img.progress {
+        top:50%;
+      }
+    }
+  }
+
 }

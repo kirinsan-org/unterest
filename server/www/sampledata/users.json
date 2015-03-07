@@ -1,0 +1,41 @@
+[
+    {
+        "screenname": "takustaqu",
+        "userid": 0,
+        "oauth": {
+            "facebook": "0000000",
+            "twitter": "000000"
+        },
+        "toilet": [
+            0,
+            2
+        ],
+        "review": [
+            {
+                "reviewer": 1,
+                "title": "綺麗に使ってくれています。",
+                "note": "トイレットペーパーの端も折ってくれる素敵な方でした！",
+                "rate": 5
+            }
+        ]
+    },
+    {
+        "screenname": "niusounds",
+        "userid": 1,
+        "oauth": {
+            "facebook": "0000000",
+            "twitter": "000000"
+        },
+        "toilet": [
+            1
+        ],
+        "review": [
+            {
+                "reviewer": 0,
+                "title": "アツい、ヤバイ。",
+                "note": "ウォシュレットについての凄まじい持論の持ち主でした。改善します。",
+                "rate": 5
+            }
+        ]
+    }
+]

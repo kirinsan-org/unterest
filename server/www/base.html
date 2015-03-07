@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <title></title>
   <link rel="stylesheet" href="stylesheets/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="components/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
 
@@ -30,66 +30,6 @@
 
     <a href="#" class="buttonCommon">+</a>
   </header>
-
-
-  <section id="entrance">
-    <div class="lowerComponents">
-      <button class="lighten" ><span class="glyphicons compass"></span>位置情報を送信して開始</button>
-      <img src="images/loader.gif" alt="" class="progress">
-    </div>
-  </section>
-
-  <script>
-
-
-  var Geokit = function(callback){
-    this.status = undefined;
-    this.result = false;
-    return false;
-  }
-
-
-  Geokit.prototype.done = function(pos){
-     this.status = "success";
-     console.log(this.status , this);
-     console.log("done:",pos,status);
-     this.result = pos;
-  }
-
-  Geokit.prototype.fail = function(a){
-     this.status = false;
-  }
-
-
-  Geokit.prototype.get = function(callback){
-    navigator.geolocation.getCurrentPosition(
-      function(pos){
-        geolocation.done(pos);
-        callback.call(this);
-      },
-      function(pos){
-        geolocation.fail(pos);
-      });
-  }
-
-
-  var geolocation = new Geokit();
-
-
-
-    $(function(){
-
-      var $entrance = $("#entrance");
-
-      $entrance.find("button").on({"click":function(){
-        $entrance.addClass("progress");
-        geolocation.get(function(){
-          $entrance.fadeOut();
-        })
-      }});
-    })
-  </script>
-
 
   <section>
     <ul id="main-cards" class="cards searchresult">
@@ -160,8 +100,6 @@
       },sleep);
 
     })
-
-
   </script>
 
 
@@ -170,7 +108,34 @@
   </footer>
 
 
+
+<style>
+
+</style>
 <script>
+
+
+
+function setToiletCount(arg){
+  var $counter = $("#toilet-count").children(".counter");
+  var i = 0;
+  var interval = setInterval(function(){
+
+    var tmp = Math.round(arg - (arg - (i++ * 2)));
+
+    if(tmp >= arg){
+      $counter.text(arg);
+      clearInterval(interval);
+      setTimeout(function(){
+        $("img.mark").animate({"opacity":1});
+      },300)
+    }else{
+      $counter.text(tmp);
+    }
+
+  },30);
+}
+
 
 
 
@@ -186,6 +151,13 @@ $(window).on(
 
     }
 
+});
+
+
+$(function(){
+  setTimeout(function(){
+    setToiletCount(100);
+  },3000);
 });
 
 
