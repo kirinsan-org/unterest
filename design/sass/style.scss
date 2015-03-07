@@ -9,6 +9,7 @@
 /*Width*/
 $phoneMaxWidth : 767px;
 $phoneMinWidth : 320px;
+$phoneLandscapeMinWidth : 480px;
 
 $phabletWidth:410px;
 $phoneLargeWidth:370px;
@@ -30,6 +31,7 @@ $UIFooterHeight : $UICommonHeight;
 
 /* drop shadow level*/
 
+$dropShadowLv0 : 0 0px 0px rgba(0, 0, 0, 1);
 $dropShadowLv1 : 0 1px 2px rgba(0, 0, 0, 0.4);
 $dropShadowLv2 : 0 2px 3px rgba(0, 0, 0, 0.3);
 $dropShadowLv3 : 0 3px 5px rgba(0, 0, 0, 0.25);
@@ -51,6 +53,8 @@ body {
 header#global-header ,
 footer#global-footer {
   width:100%;position: absolute;
+  box-shadow:$dropShadowLv0;
+
   }
 
 header#global-header {
@@ -148,7 +152,31 @@ footer#global-footer {
 
 .cards {
   display:block;
+
+  &:after{
+    content:"";
+    display:block;
+    clear:both;
+    zoom:1;
+  }
+
   > li {
+
+    @media  (min-width: $phoneLandscapeMinWidth) and (max-width: $phoneMaxWidth)  {
+      width:50%;
+      float:left;
+    }
+
+    @media (min-width: $tabletMinWidth ) and (max-width: $tabletMaxWidth ){
+      width:33.333%;
+      float:left;
+    }
+
+    @media (min-width: $pcMinWidth ) {
+      width:25%;
+      float:left;
+    }
+
     > .card {
 
       $cardPadding:12px;
@@ -160,7 +188,7 @@ footer#global-footer {
       box-shadow:$dropShadowLv1;
 
       .visual {
-        margin: $cardPadding*-1 $cardPadding*-1 0 $cardPadding*-1;
+        margin: $cardPadding*-1 $cardPadding*-1 $cardPadding $cardPadding*-1;
         overflow: hidden;
         clear:both;
         display:block;
