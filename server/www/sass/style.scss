@@ -345,6 +345,12 @@ button {
           bottom: 0;
           position: absolute;
           top: auto;
+
+          .glyphicons {
+            top: 4px;
+            font-size: 17px!important;
+            margin-right: 4px;
+          }
           
           &:active{
             bottom: -5px;
