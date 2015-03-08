@@ -118,7 +118,6 @@ button {
   background-color: #ccc;
   min-height:100px;
   position: relative;
-
   transition: height 0.5s ease-in-out 0s;
 
   $ratio :0.5;
@@ -150,6 +149,11 @@ button {
     }
 
     > div.visual.streetview {
+
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center;
+      
       > img{
         margin-top:-15%;
         /* -webkit-filter: blur(9px); */
@@ -351,7 +355,7 @@ button {
             font-size: 17px!important;
             margin-right: 4px;
           }
-          
+
           &:active{
             bottom: -5px;
           }

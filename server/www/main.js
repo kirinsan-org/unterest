@@ -139,11 +139,11 @@ jQuery(function($) {
           var sturl = '//maps.googleapis.com/maps/api/streetview?size=960x480&location='+ geolocation.result.coords.latitude + "," + geolocation.result.coords.longitude + '&heading=235&sensor=false'
         }
 
-        $vis = $(".visual.streetview");
+        $vis = $(".visual.streetview").css("backgroundImage","url("+sturl+")");
         $vis.find("img").fadeOut(function(){
           var $img = $("<img />").attr('src',sturl).hide();
           $vis.append($img);
-          $img.fadeIn()
+          $img.remove()
         })
 
 
