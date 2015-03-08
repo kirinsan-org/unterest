@@ -1,10 +1,35 @@
-
-
 <!DOCTYPE html>
+
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title></title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" sizes="192x192" href="images/touch/homescreen192.png">
+
+  <meta name="theme-color" content="#E24D00">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Unterest">
+
+  <link rel="shortcut icon" href="images/touch/homescreen72-fav.png">
+  <link rel="apple-touch-icon" href="images/touch/homescreen48.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/touch/homescreen72.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="images/touch/homescreen96.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/touch/homescreen144.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="images/touch/homescreen192.png">
+
+  <meta name="msapplication-TileImage" content="images/touch/homescreen144.png">
+  <meta name="msapplication-TileColor" content="#E24D00">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <meta property="og:title" content="Unterest">
+  <meta property="og:site_name" content="Unterest">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/">
+  <meta property="og:description" content="Unterest is world's fastest toilet finder service.">
+
   <link rel="stylesheet" href="stylesheets/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="components/imagesloaded/imagesloaded.pkgd.min.js"></script>
@@ -14,6 +39,7 @@
 
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
+
 <body>
 
   <header id="global-header">
@@ -29,14 +55,16 @@
     </div>
 
     <a href="#" class="buttonCommon lighten mainvisualCenter">
-      <div class="first"><span class="glyphicons fire">トイレ貸してください！</span></div>
-      <div class="second"><span class="glyphicons undo"></span></div>
+      <div class="first"><span class="glyphicons fire">トイレ貸してください！</span>
+      </div>
+      <div class="second"><span class="glyphicons undo"></span>
+      </div>
     </a>
   </header>
 
   <section id="entrance">
     <div class="lowerComponents">
-      <button class="lighten" ><span class="glyphicons compass"></span>位置情報を送信して開始</button>
+      <button class="lighten"><span class="glyphicons compass"></span>位置情報を送信して開始</button>
       <img src="images/loader.gif" alt="" class="progress">
     </div>
   </section>
@@ -52,4 +80,5 @@
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="main.js"></script>
 </body>
+
 </html>
